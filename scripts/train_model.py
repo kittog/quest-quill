@@ -1,6 +1,6 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, TextDataset, DataCollatorForLanguageModeling, Trainer, TrainingArguments
 
-model_name = "gpt2-large"  # Utilisez "gpt2-large" pour le modèle large
+model_name = "gpt2-medium"  # Utilisez "gpt2-large" pour le modèle large
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 model = GPT2LMHeadModel.from_pretrained(model_name)
 
@@ -19,7 +19,7 @@ data_collator = DataCollatorForLanguageModeling(
 training_args = TrainingArguments(
     output_dir="./gpt2_quest_generator_finetuned2",
     overwrite_output_dir=True,
-    num_train_epochs=70,
+    num_train_epochs=30,
     per_device_train_batch_size=10,
     save_steps=10_000,
     save_total_limit=2,
