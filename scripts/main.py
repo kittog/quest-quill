@@ -7,91 +7,135 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-model_path = "gpt2_quest_generator_finetuned2"
+model_path = "gpt2test"
 model = GPT2LMHeadModel.from_pretrained(model_path)
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 
 def generer_quete(map: str, difficulty: str, target: str) -> str:
-    prompt = f"Map: {map} | Difficulty: {difficulty} | Target: {target} ->"
+    prompt = f"Map: {map} | Difficulty: {difficulty} | Target: {target} -> "
     inputs = tokenizer.encode(prompt, return_tensors='pt')
-    outputs = model.generate(inputs, max_length=300, num_return_sequences=1, no_repeat_ngram_size=1)
-    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+    outputs = model.generate(
+        inputs,
+        max_length=75,
+        num_return_sequences=1,
+        no_repeat_ngram_size=10,
+        temperature=0.9,
+        top_k=50,
+        top_p=0.92,
+        do_sample=True,
+    )
+
+    generated_sequence = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    # Vérifier si "Description" est présent dans la séquence générée
+    if "blabla" in generated_sequence:
+        # Trouver l'indice où "Description" apparaît
+        stop_index = generated_sequence.index("blabla")
+        # Retourner la séquence jusqu'à l'indice où "Description" apparaît
+        return generated_sequence[:stop_index].strip()
+    else:
+        return generated_sequence
 
 @app.get("/", response_class=HTMLResponse)
 async def home():
     return """
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quest Quill</title>
     <style>
         body {
-            max-width: 800px;
-            max-height: 800px
             font-family: Arial, sans-serif;
-            background-color: #d3d3d3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: auto;
-            flex-direction: row;
-            position: center;
-            border-radius: 5px;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 480px; /* Largeur fixe pour l'apparence mobile */
+            margin: 1px auto;
+            background-color: #fff;
+            border-radius: 10px;
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+            text-align: center; /* Centrer le contenu */
+        }
+        .logo {
+            max-width: 65%; /* Ajustement de la largeur du logo */
+            margin: 0px auto; /* Réduction de l'espace autour du logo */
         }
         .image-container {
-            margin-right: 50px;
-        }
-        .form-container {
-            max-width: 400px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 20px; /* Espacement entre l'image et le formulaire */
         }
         input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        input[type="number"],
+        input[type="submit"] {
+            width: 90%; /* Définition de la largeur à 90% */
+            padding: 12px; /* Augmentation de l'espacement interne */
+            margin: 10px 0;
+            border: none;
+            border-radius: 25px; /* Bords arrondis */
             box-sizing: border-box;
+            background-color: #f9f9f9; /* Couleur de fond des champs de saisie */
+            font-size: 16px;
+            outline: none;
         }
         input[type="submit"] {
+            width: 50%; /* Largeur du bouton */
             background-color: #4CAF50;
             color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
             cursor: pointer;
-            width: 100%;
+            transition: background-color 0.3s;
+            border: 2px solid #000; /* Bordure noire */
         }
         input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            overflow: hidden;
+            border: 2px solid #000; /* Bordure noire */
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 15px; /* Bords arrondis */
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
             background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-<div class="logo-container" style="position: absolute; top: 5px; width: 100%; text-align: center; padding: 20px 0;">
-    <img src="/static/logo.png" alt="Logo" style="max-width: 500px;">
-</div>
-<div class="image-container">
-    <img src="/static/bann.png" alt="Banner Image" style="max-width: 300px; max-height: 100vh;">
-</div>
-<div class="form-container">
-    <h1>Quest Generator</h1>
+<div class="container">
+    
+    <img src="/static/logo.png" alt="logo" class="logo">
+    <div class="navbar">
+        <a href="#">Generate Quest</a>
+        <a href="#">Methodologie</a>
+        <a href="#">Documentation</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="image-container">
+        <img src="/static/bann.png" alt="image" style="max-width: 100%;">
+    </div>
     <form action="/generate_quest/" method="post">
-        <label for="map">Map:</label>
-        <input type="text" id="map" name="map" placeholder="Enter the map..."><br>
-        <label for="difficulty">Difficulty:</label>
-        <input type="text" id="difficulty" name="difficulty" placeholder="Enter the difficulty..."><br>
-        <label for="target">Target:</label>
-        <input type="text" id="target" name="target" placeholder="Enter the target..."><br>
-        <input type="submit" value="Generate the quest">
+        <input type="text" id="map" name="map" placeholder="Enter the map...">
+        <input type="text" id="difficulty" name="difficulty" placeholder="Enter the difficulty...">
+        <input type="text" id="target" name="target" placeholder="Enter the target...">
+        <input type="submit" value="Generate Quest">
     </form>
 </div>
 
