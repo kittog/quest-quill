@@ -1,0 +1,54 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header, nav, section, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+header, nav a {
+    text-decoration: none;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ai-section {
+    background: linear-gradient(135deg, #4f74f9, #a17fe0);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
