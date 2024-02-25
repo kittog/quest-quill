@@ -47,8 +47,9 @@ section {
 
 footer {
     text-align: center;
-    padding: 1em;
+    padding: 0.05em;
     position: fixed;
     bottom: 0;
     width: 100%;
+    opacity: 1;
 }
