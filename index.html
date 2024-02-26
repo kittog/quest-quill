@@ -22,6 +22,16 @@
     </nav>
 
     <section id="generate" class="ai-section" style="position: relative;">
+        <h2>Projet Quest Quill  </h2>
+        <p style="text-align: justify;"><strong>Qu'est ce que c'est ?</strong></p>
+        <div style="text-align: justify;">
+                <p>Quest Quill est un générateur de quêtes automatiques . L'utilisateurs spécifie la carte ou il souhaite combatre, le monstre qu'il souhaite abattre ainsi que la difficulté de la quête.</p>
+                <p>Suite aux indications données par l'utilisateurs, QUest Quill va générer une quête avec un contexte et un objectif à accomplir</p>
+                <p style="text-align: justify;"><strong>Et pourquoi ?</strong></p>
+                <p>Le monde étant en grand danger suite aux multiples attaques de monstres. Il nous a semblé urgent de nous entraîner à combattre à l'aide d'un générateur de quêtes automatiques. Les objectifs de cet entraînement sont, dans un premier temps générer des quetes avec des conditions telles que : map, difficulté, monstre. Dans un second temps les quetes devront avoir de la cohérence et de l'humour. Ce sont des quetes qui servent à divertir ! </p>
+    
+        
+
         <h2>Manuel Quest Quill</h2>
         <p style="text-align: justify;"><strong>Prérequis :</strong></p>
         <ul style="text-align: justify;">
@@ -150,40 +160,62 @@
     
     <section id="documentation" class="ai-section">
         <h2>Documentation</h2>
-        <div style="text-align: justify;">
-            <p>
-                <span class="sub-section">Objectif</span>
-                <p>Le monde étant en grand danger suite aux multiples attaques de monstres. Il nous a semblé urgent de nous entraîner à combattre à l'aide d'un générateur de quêtes automatiques. Les objectifs de cet entraînement sont, dans un premier temps générer des quetes avec des conditions telles que : map, difficulté, monstre. Dans un second temps les quetes devront avoir de la cohérence et de l'humour. Ce sont des quetes qui servent à divertir ! </p>
-    
-            <p>
+ 
                 <span class="sub-section">Données utilisées</span>
-                <p> Les données qui ont été utilisées dans ce projet viennent d'un dépôt GitHub libre : <a href="https://github.com/CrimsonNynja/monster-hunter-DB/tree/master">https://github.com/CrimsonNynja/monster-hunter-DB/tree/master</a></p>
-                <p>Ce sont des données qui proviennent du jeu vidéo Monster Hunter, ces données sont des quêtes de ce même jeu vidéo : un jeu de combat entre chasseur et monstres hyper classes. La particularité des quêtes de Monster Hunter, c'est qu'elles sont simplement construites : un monstre à tuer, le contexte, l'objectif, la carte et la difficulté. Ce qui est parfait pour notre projet. En plus de ça, ce sont des quêtes qui ont un fond d'humour ce qui nous permet de rire malgré le destin du monde qui s'avère bien noir...</p>
+                <p style="text-align: justify;"> Les données qui ont été utilisées dans ce projet viennent d'un dépôt GitHub libre : <a href="https://github.com/CrimsonNynja/monster-hunter-DB/tree/master">https://github.com/CrimsonNynja/monster-hunter-DB/tree/master</a></p>
+                <p style="text-align: justify;">Ce sont des données qui proviennent du jeu vidéo Monster Hunter, ces données sont des quêtes de ce même jeu vidéo : un jeu de combat entre chasseur et monstres hyper classes. La particularité des quêtes de Monster Hunter, c'est qu'elles sont simplement construites : un monstre à tuer, le contexte, l'objectif, la carte et la difficulté. Ce qui est parfait pour notre projet. En plus de ça, ce sont des quêtes qui ont un fond d'humour ce qui nous permet de rire malgré le destin du monde qui s'avère bien noir...</p>
             </p>
     
             <p>
-                <span class="sub-section">Prétraitement</span>
-                <p>Nous avons de la chance, les données du dépôt GitHub sont sous un format JSON avec plusieurs types de balises : target, objective, map, difficulty. Afin de nous faciliter la tâche, nous avons décidé de créer notre propre format de balise en abandonnant le format JSON. Pour ce faire, nous avons simplement pris le contenu de chaque balise qui nous intéressait pour l'écrire dans un fichier texte balisé à notre manière. Exemple : Map : Desert | Difficulty : easy | Objective : Kill a Rathian  | Description ..</p>
+                    <span class="sub-section">Prétraitement</span>
+                    <ul style="text-align: justify;">
+                        <li>Les données du dépôt GitHub sont sous un format JSON avec plusieurs types de balises : target, objective, map, difficulty.</li>
+                        <li>Nous avons un total de 844 quêtes pour l'entraînement</li>
+                        <li>Extraction du contenu des balises  difficulty, objective, target, description, du corpus json à l'aide du script bla.py  </li>
+                        <li>Suite à l'extraction notre corpus est construit sous un format txt de cette forme : </li>
+                        <li>Exemple : Map : Desert | Difficulty : easy | Objective : Kill a Rathian | Description blabla....</li>
+                        <li>Simplification du corpus en retirant x monstres du corpus. Leurs noms a été synthéthiser , exemple : Apex Nargacuga -> Nargacuga et des maps en retirant x maps</li>
+                    </ul>
+                
             </p>
+            <span class="sub-section">Fine tuning GPT2</span>
+            <ul style="text-align: justify;">
+                <li>L'entraînement a été réalisé avec le script train.py</li>
+                <li>Le modèle utilisé est GPT2 medium pour éviter les longs délais d'entraînement qu'impliquerait la version large.</li>
+                <li>Incorporation d'un corpus au format TXT pré-traité avec un format de balise spécifique.</li>
+                <li>Apprentissage basé sur des blocs textuels de taille 75, permettant de couvrir intégralement une quête.</li>
+                <li>Dix epochs et un batch size de 10 ont été choisis, avec une durée d'entraînement de 30 minutes.</li>
+                <li>La génération a été réalisé avec generate.py</li>
+                <li>Le prompt spécifie en back end est :  Map : {map} | Diificulty : {level} | Target : {monstres} </li>
+                <li>Limitation à 75 max de n-grammes générés pour la génération de texte.</li>
+                <li>La température contrôle le niveau de créativité, avec des valeurs plus élevées générant des sorties plus variées mais moins cohérentes.</li>
+                <li>Top-K Sampling limite les choix de tokens aux K tokens les plus probables, favorisant la cohérence tout en permettant de la variété.</li>
+                <li>Top-P Sampling (Nucleus Sampling) limite la distribution cumulative des probabilités, permettant une génération plus dynamique parmi les tokens les plus probables.</li>
+                <li>No Repeat N-Grams empêche la répétition immédiate de séquences de mots pour éviter les motifs répétitifs indésirables.</li>
+                <li>Les paramètres de génération peuvent être ajustés pour obtenir les résultats souhaités.</li>
+            </ul>
+            
+        </p>
+        <span class="sub-section">FastAPI</span>
+        <ul style="text-align: justify;">
+<li> Création d'une interface web avec FastAPI</li>
+        </ul>
+        
+    </p>
     
             <p>
                 <span class="sub-section">Méthodologie</span>
-                <p>Pour sauver le monde, il faut être hyper bien organisé, donc nous nous sommes bien réparties le travail. Qinliang QI s'est occupée de tester le modèle BERT afin de générer des quêtes automatiquement. Natacha MINICONI s'est renseignée sur la conception d'un fine-tuning sur GPT2 afin de construire un modèle de génération automatique. Léna GAUBERT a pré-traité le fichier texte et a évalué le modèle qui sera retenu entre GPT2 et BERT. Par la suite de son évaluation, Qinliang et Natacha ont également regardé cette évaluation. Chaque personne a sa propre perception face aux quêtes générées.</p>
+                <p style="text-align: justify;">Pour sauver le monde, il faut être hyper bien organisé, donc nous nous sommes bien réparties le travail. Qinliang QI s'est occupée de tester le modèle BERT afin de générer des quêtes automatiquement. Natacha MINICONI s'est renseignée sur la conception d'un fine-tuning sur GPT2 afin de construire un modèle de génération automatique. Léna GAUBERT a pré-traité le fichier texte et a évalué le modèle qui sera retenu entre GPT2 et BERT. Par la suite de son évaluation, Qinliang et Natacha ont également regardé cette évaluation. Chaque personne a sa propre perception face aux quêtes générées.</p>
             </p>
     
             <p>
-                <span class="sub-section">Implémentation</span>
-                <p>Le modèle que nous utiliserons pour ce projet est GPT2. Nous avons utilisé le modèle medium de GPT2, si nous prenions le large, on serait encore en train d'entraîner le modèle :( . Nous avons incorporé au modèle le corpus au format TXT qui a été pré-traité avec notre format de balise. Le modèle apprend par taille de bloc textuel. Nous avons choisi une taille qui permet d'englober la taille d'une quête entièrement -> 75. Nous avons choisi 10 epochs puis un batch size de 10. L'entraînement a duré 30 minutes.</p>
-                <p>Le code pour la génération de texte a été plus compliqué à produire. Nous avons mis une limite à max_lenght: 75 max de n-grammes générés.</p>
-                <p>    Temperature : Contrôle le niveau de créativité dans la génération de texte. Une température plus élevée génère des sorties plus variées mais moins cohérentes.
-                    Top-K Sampling : Limite le choix de tokens aux K tokens les plus probables à chaque étape. Cela favorise la cohérence tout en introduisant une certaine variété.
-                    Top-P Sampling (Nucleus Sampling) : Limite la distribution cumulative des probabilités pour le choix des tokens. Cela permet une génération plus dynamique en échantillonnant parmi les tokens les plus probables jusqu'à ce que la somme des probabilités dépasse un seuil.
-                    No Repeat N-Grams : Empêche la répétition immédiate de séquences de mots. Cela garantit que la quête générée ne contienne pas de motifs répétitifs indésirables.
-                Ces paramètres peuvent être ajustés en fonction des besoins pour obtenir des résultats de génération souhaités.</p>
-            </p>
+
     
             <p>
                 <span class="sub-section">Résultats</span>
+            </p>
+            <p>
+                <span class="sub-section">Sources</span>
             </p>
         </div>
     </section>
