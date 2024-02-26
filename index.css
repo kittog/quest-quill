@@ -53,3 +53,33 @@ footer {
     width: 100%;
     opacity: 1;
 }
+.ai-section {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ai-section h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.ai-section p {
+    color: white
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.ai-section ul {
+    color: white;
+    font-size: 16px;
+}
+
+.ai-section ul li {
+    margin-bottom: 5px;
+}
+
