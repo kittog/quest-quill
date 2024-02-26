@@ -37,7 +37,7 @@
         <ul style="text-align: justify;">
             <li>Python 3.x installé sur votre système.</li>
             <li>Bibliothèque Transformers de Hugging Face installée (<code>pip install transformers</code>).</li>
-            <li>Un modèle pré-entraîné GPT-2 et son tokenizer.</li>
+            <li>Le modèle pré-entraîné GPT-2 et son tokenizer.</li>
             <li>FastAPI</li>
             <li>Uvicorn</li>
         </ul>
@@ -184,7 +184,7 @@
                 <li>Le modèle utilisé est GPT2 medium pour éviter les longs délais d'entraînement qu'impliquerait la version large.</li>
                 <li>Incorporation d'un corpus au format TXT pré-traité avec un format de balise spécifique.</li>
                 <li>Apprentissage basé sur des blocs textuels de taille 75, permettant de couvrir intégralement une quête.</li>
-                <li>Dix epochs et un batch size de 10 ont été choisis, avec une durée d'entraînement de 30 minutes.</li>
+                <li>10 epochs et un batch size de 10 ont été choisis, avec une durée d'entraînement de 30 minutes.</li>
                 <li>La génération a été réalisé avec generate.py</li>
                 <li>Le prompt spécifie en back end est :  Map : {map} | Diificulty : {level} | Target : {monstres} </li>
                 <li>Limitation à 75 max de n-grammes générés pour la génération de texte.</li>
@@ -200,13 +200,16 @@
         <ul style="text-align: justify;">
 <li> Création d'une interface web avec FastAPI</li>
         </ul>
-        
+        <span class="sub-section">Méthodologie</span>
+
     </p>
+    <ul style="text-align: justify;">
+        <li>Qinliang QI : Test du modèle BERT pour la génération automatique de quêtes.</li>
+        <li>Natacha MINICONI : Recherche sur la conception d'un fine-tuning sur GPT2 pour la génération automatique de modèles.</li>
+        <li>Léna GAUBERT : Prétraitement du fichier texte et évaluation du modèle à retenu entre GPT2 et BERT.</li>
+        <li>Évaluation collective : Après l'évaluation par Léna, Qinliang et Natacha examinent également les résultats pour apporter leur perception individuelle sur les quêtes générées.</li>
+    </ul>
     
-            <p>
-                <span class="sub-section">Méthodologie</span>
-                <p style="text-align: justify;">Pour sauver le monde, il faut être hyper bien organisé, donc nous nous sommes bien réparties le travail. Qinliang QI s'est occupée de tester le modèle BERT afin de générer des quêtes automatiquement. Natacha MINICONI s'est renseignée sur la conception d'un fine-tuning sur GPT2 afin de construire un modèle de génération automatique. Léna GAUBERT a pré-traité le fichier texte et a évalué le modèle qui sera retenu entre GPT2 et BERT. Par la suite de son évaluation, Qinliang et Natacha ont également regardé cette évaluation. Chaque personne a sa propre perception face aux quêtes générées.</p>
-            </p>
     
             <p>
 
