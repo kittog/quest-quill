@@ -83,3 +83,9 @@ footer {
     margin-bottom: 5px;
 }
 
+.ai-section footer p {
+    font-size: 10px; /* Réduire la taille de la police */
+    margin: 0px 0; /* Ajuster les marges */
+    padding: 0px;
+
+}
