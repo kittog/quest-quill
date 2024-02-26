@@ -47,7 +47,7 @@ section {
 
 footer {
     text-align: center;
-    padding: 0.05em;
+    padding: 0em;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -55,7 +55,7 @@ footer {
 }
 .ai-section {
     background-color: #f0f0f0;
-    padding: 20px;
+    padding: 5px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -84,7 +84,7 @@ footer {
 }
 
 .ai-section footer p {
-    font-size: 10px; /* Réduire la taille de la police */
+    font-size: 1px; /* Réduire la taille de la police */
     margin: 0px 0; /* Ajuster les marges */
     padding: 0px;
 
