@@ -170,8 +170,8 @@
                     <span class="sub-section">Prétraitement</span>
                     <ul style="text-align: justify;">
                         <li>Les données du dépôt GitHub sont sous un format JSON avec plusieurs types de balises : target, objective, map, difficulty.</li>
-                        <li>Nous avons un total de 844 quêtes pour l'entraînement</li>
-                        <li>Extraction du contenu des balises  difficulty, objective, target, description, du corpus json à l'aide du script bla.py  </li>
+                        <li>Nous avons un total de 848 quêtes pour l'entraînement</li>
+                        <li>Extraction du contenu des balises qui nous interessent dans le projet : difficulty, objective, target, description, du corpus json à l'aide du script bla.py  </li>
                         <li>Suite à l'extraction notre corpus est construit sous un format txt de cette forme : </li>
                         <li>Exemple : Map : Desert | Difficulty : easy | Objective : Kill a Rathian | Description blabla....</li>
                         <li>Simplification du corpus en retirant x monstres du corpus. Leurs noms a été synthéthiser , exemple : Apex Nargacuga -> Nargacuga et des maps en retirant x maps</li>
@@ -182,23 +182,26 @@
             <ul style="text-align: justify;">
                 <li>L'entraînement a été réalisé avec le script train.py</li>
                 <li>Le modèle utilisé est GPT2 medium pour éviter les longs délais d'entraînement qu'impliquerait la version large.</li>
-                <li>Incorporation d'un corpus au format TXT pré-traité avec un format de balise spécifique.</li>
-                <li>Apprentissage basé sur des blocs textuels de taille 75, permettant de couvrir intégralement une quête.</li>
-                <li>10 epochs et un batch size de 10 ont été choisis, avec une durée d'entraînement de 30 minutes.</li>
+                <li>Incorporation d'un corpus au format txt pour les données d'entraînement.</li>
+                <li>Apprentissage basé sur des blocs textuels de taille 75, permettant de couvrir intégralement une quête. (la moyenne de longueur d'une quête est d'environ 75 d'ou ce choix)</li>
+                <li>10 epochs et un batch size de 10 ont été choisis</li>
                 <li>La génération a été réalisé avec generate.py</li>
-                <li>Le prompt spécifie en back end est :  Map : {map} | Diificulty : {level} | Target : {monstres} </li>
                 <li>Limitation à 75 max de n-grammes générés pour la génération de texte.</li>
                 <li>La température contrôle le niveau de créativité, avec des valeurs plus élevées générant des sorties plus variées mais moins cohérentes.</li>
                 <li>Top-K Sampling limite les choix de tokens aux K tokens les plus probables, favorisant la cohérence tout en permettant de la variété.</li>
                 <li>Top-P Sampling (Nucleus Sampling) limite la distribution cumulative des probabilités, permettant une génération plus dynamique parmi les tokens les plus probables.</li>
                 <li>No Repeat N-Grams empêche la répétition immédiate de séquences de mots pour éviter les motifs répétitifs indésirables.</li>
                 <li>Les paramètres de génération peuvent être ajustés pour obtenir les résultats souhaités.</li>
+                <li>Le prompt spécifié en back end est :  Map : {map} | Dificulty : {level} | Target : {monstres} </li>
+                <li>Ce prompt permet d'inciter le modèle à générer la suite de la quête -> Objectif , Description</li>
             </ul>
             
         </p>
         <span class="sub-section">FastAPI</span>
         <ul style="text-align: justify;">
 <li> Création d'une interface web avec FastAPI</li>
+<li>Interface web avec 3 critères à inserer </li>
+<img src="image/exemple.png">
         </ul>
         <span class="sub-section">Méthodologie</span>
 
@@ -216,16 +219,54 @@
     
             <p>
                 <span class="sub-section">Résultats</span>
-            </p>
+            </p> 
+            <ul style="text-align: justify;">
+                <li> Résultat sous la forme d'une quête générée</li>
+                <li>Lorsque l'utilisateur a rentré ses critères une quête est générée voir ci-dessous</li>
+                <img src="image/exemple2.png">
+                        </ul>
+                        <span class="sub-section">Discussion des résultats</span>
+                    </p> 
+                    <ul style="text-align: justify;">
+                        <li> A notre surprise le modèle génère des quetes avec peu de fautes de grammaire, de plus les quêtes générées parviennent à reproduire des traits d'humour dans les quêtes de référence.</li>
+                        <li>Lorsque nous demandons des quetes avec plusieurs monstres le modèle parvient à changer l'objectif en précisant bien qu'il faut tuer plusieurs monstres</li>
+                        <li>Plusieurs types d'erreurs sont cependant ressorties</li>
+                        <li>Par moment lorsque nous demandons une map par exemple le desert , le modèle peut générer une quête qui se produit dans une arene en spécifiant que c'est dans une arène</li>
+                        <li> Mais par moment il décrit bien le bon lieu ce n'est pas une faute réccurente</li>
+                        <li>Le modèle lorsque nous mentionnons plusieurs monstres se focalisent souvent dans la description que sur un monstre</li>
+                        <li>Lorsque nous sommes adeptes de ce jeu des incohérences se construisent mais cela est dû à nos choix de critères :</li>
+                        <li> Demander un Diablos en difficulté facile , c'est pas courant dans le jeu vidéo, le diablos est un monstre compliqué. Les quêtes faciles du jeu sont de tuer par exemple 7 petits monstres, le modèle si on lui demander de generer une quete facile avec le Diablos , il va nous dire d'aller chasser 7 diablos en facile. C'est pas facile , c'est dur voir extrême ! BON COURAGE !</li>
+
+                                </ul>
+                        <span class="sub-section">Méthodologie</span>
+                
+                    </p>
+                    <ul style="text-align: justify;">
+                        <li>Qinliang QI : Test du modèle BERT pour la génération automatique de quêtes.</li>
+                        <li>Natacha MINICONI : Recherche sur la conception d'un fine-tuning sur GPT2 pour la génération automatique de modèles.</li>
+                        <li>Léna GAUBERT : Prétraitement du fichier texte et évaluation du modèle à retenu entre GPT2 et BERT.</li>
+                        <li>Évaluation collective : Après l'évaluation par Léna, Qinliang et Natacha examinent également les résultats pour apporter leur perception individuelle sur les quêtes générées.</li>
+                    </ul>
             <p>
                 <span class="sub-section">Sources</span>
-            </p>
+            </p>            <ul style="text-align: justify;">
+                <li>Teppen pour les images</li>
+                <li>Monster hunter</li>
+
+                        </ul>
         </div>
     </section>
     
     <section id="evaluation" class="ai-section">
         <h2>Évaluation du Modèle</h2>
-        <p>Perspectives d'évaluation, retours des utilisateurs...</p>
+        <ul style="text-align: justify;">
+            <li>L'évaluation de modèle génératif a été réalisée à l'aide d'un barème que nous avons établis. Ce barème se veut perceptif et subjectif</li>
+            <li>La génération de quête étant libre sans réelle référence ( Nous pouvons par exemple généré une qûete avec un Diablos en difficulté facile et ça c'est impossible dans le jeu le monstre est super dur ! Mais, justement il nous a semblé intéressant de voir comment le modèle construit ses quêtes et en invente à l'aide du corpus d'entraînement)</li>
+            <li>Pour réaliser cette évaluation nous avons réalisé deux google form ( un anglais un français ) que nous avons partagés sur des réseaux sociaux</li>
+            <li>Ce questionnaire contient 7 quêtes générées et 7 quêtes venant du jeu.</li>
+            <li>Le but est que la personne note sur une echelle de 5 , la grammaire, la cohérence, la syntaxe, la pertinence du registre utilisé, la quête contient-elle suffisamment d'informations</li>
+            <li>mettre les scores obtenus</li>
+        </ul>
     </section>
 
     <section id="modelbert" class="ai-section">
