@@ -162,7 +162,7 @@
         <h2>Documentation</h2>
  
                 <span class="sub-section">Données utilisées</span>
-                <p style="text-align: justify;"> Les données qui ont été utilisées dans ce projet viennent d'un dépôt GitHub libre : <a href="https://github.com/CrimsonNynja/monster-hunter-DB/tree/master">https://github.com/CrimsonNynja/monster-hunter-DB/tree/master</a></p>
+                <p style="text-align: justify;"> Les données qui ont été utilisées dans ce projet viennent d'un dépôt GitHub libre sous licence MIT: <a href="https://github.com/CrimsonNynja/monster-hunter-DB/tree/master">https://github.com/CrimsonNynja/monster-hunter-DB/tree/master</a></p>
                 <p style="text-align: justify;">Ce sont des données qui proviennent du jeu vidéo Monster Hunter, ces données sont des quêtes de ce même jeu vidéo : un jeu de combat entre chasseur et monstres hyper classes. La particularité des quêtes de Monster Hunter, c'est qu'elles sont simplement construites : un monstre à tuer, le contexte, l'objectif, la carte et la difficulté. Ce qui est parfait pour notre projet. En plus de ça, ce sont des quêtes qui ont un fond d'humour ce qui nous permet de rire malgré le destin du monde qui s'avère bien noir...</p>
             </p>
     
@@ -175,6 +175,8 @@
                         <li>Suite à l'extraction notre corpus est construit sous un format txt de cette forme : </li>
                         <li>Exemple : Map : Desert | Difficulty : easy | Objective : Kill a Rathian | Description blabla....</li>
                         <li>Simplification du corpus en retirant x monstres du corpus. Leurs noms a été synthéthiser , exemple : Apex Nargacuga -> Nargacuga et des maps en retirant x maps</li>
+                        <li> La simplification a été réalisé suite à des génération de quêtes de notre part. Il y avait trop de monstres pour peu de quêtes ce qui posait problème lors de la génération de l'objectif ou il se trompait de monstres</li>
+                        <li>La suppression du format json a été réalisé pour nous simplifier la visibilité , le rendu de l'api et le code</li>
                     </ul>
                 
             </p>
@@ -194,6 +196,9 @@
                 <li>Les paramètres de génération peuvent être ajustés pour obtenir les résultats souhaités.</li>
                 <li>Le prompt spécifié en back end est :  Map : {map} | Dificulty : {level} | Target : {monstres} </li>
                 <li>Ce prompt permet d'inciter le modèle à générer la suite de la quête -> Objectif , Description</li>
+                <li> Nous avons choisi les hyper paramètres pour la génération de manière empirique , au début nous avons générés avec un max lenght de 175 c'était beaucoup trop il était très incohérent dans les descriptions</li>
+                <li>top k et top p ont été utilisés pour que les quêtes générées soit à chaque fois différente , au départ avec certains mots clefs on avait toujours la même quête c'etait pas amusant</li>
+
             </ul>
             
         </p>
@@ -272,6 +277,13 @@
     <section id="modelbert" class="ai-section">
         <h2>Modèle BERT</h2>
         <p>Informations sur le modèle BERT, problèmes rencontrées...</p>
+    </section>
+    <section class="ai-section">
+        <h2>Futur</h2>
+        <p>Pour la suite, nous aimerions continuer de travailler dessus mais avec d'autres jeux vidéos.</p>
+        <p> Avoir un corpus plus grand , balisé en fonction de thématique ( par exemple avoir un corpus fantasy, medieval), plus de critère...</p>
+        <p>Nous aurions aimé tester la version large de GPT2 ou  d'autres modèles que celui-ci comme Bart </p>
+        <p>L'idée egalement de pouvoir generer des quêtes avec de multiples environnement : monster hunter avec final fantasy ça peut être drole !</p>
     </section>
     <section id="contact" class="ai-section">
         <h2>Contact</h2>
