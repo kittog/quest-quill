@@ -34,7 +34,7 @@ Pour utiliser Quest Quill, suivez ces étapes :
 1. Télecharger le modèle disponible sur wetransfer
 2. Accédez au dossier de l'api `cd/api`
 3. Dezipper le fichier .rar telecharger sur wetransfer dans le dossier api
-4. Exécutez l'application : ```bash python -m uvicorn main:app --reload```
+4. Exécutez l'application : ``` python -m uvicorn main:app --reload```
 5. Suivez les invites pour spécifier les paramètres de la quête tels que la difficulté, le cadre et le type de quête.
 6. Votre quête est générée :) nous esperons qu'elle vous plaît !
 
