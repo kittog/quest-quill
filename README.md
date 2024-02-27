@@ -24,7 +24,7 @@ Quest Quill est conçu pour aider les maîtres de jeu (MJ) à créer des quêtes
 
 Pour installer Quest Quill, suivez ces étapes :
 
-1. Clonez le dépôt : `git clone https://github.com/votre_nom_utilisateur/quest-quill.git`
+1. Clonez le dépôt : `git clone git@github.com:kittog/quest-quill.git`
 2. Accédez au répertoire du projet : `cd quest-quill`
 3. Installez les dépendances : `pip install -r requirements.txt`
 ## Utilisation
