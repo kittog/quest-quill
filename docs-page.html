@@ -85,9 +85,10 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Section Item 4.2</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Section Item 4.3</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-5"><span class="theme-icon-holder me-2"><i class="fas fa-tools"></i></span>Résultats</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Visualisation de certains outpus et notre avis</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Evaluation perceptive</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">Evaluation GRUEN</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Visualisation de certains output et évaluation inter-annotateurs</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Évaluation de Quest Quill</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2-1">Évaluation perceptive</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2-2">Évaluation avec la métrique GRUEN</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2"><i class="fas fa-laptop-code"></i></span>Essai Modèle BERT</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Section Item 6.1</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">Section Item 6.2</a></li>
@@ -262,7 +263,7 @@
 				    <header class="docs-header">
 					    <h1 class="docs-heading">APIs</h1>
 					    <section class="docs-intro">
-<p>partie décrivant la conception de l'api</p>					</section><!--//docs-intro-->
+<p>Conception de l'API</p>					</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-3-1">
 						<h2 class="section-heading">Données utilisées</h2>
@@ -355,34 +356,76 @@
 						</p>					</section><!--//section-->
 
 					<section class="docs-section" id="item-5-2">
-						<h2 class="section-heading">Evaluation Perceptive</h2>
+						<h2 class="section-heading">Évaluation de Quest-quill</h2>
 						<ul style="text-align: justify;">
 
-							<li>Il n'y a actuellement pas de consensus quant à l'évaluation des modèles génératifs. Pour l'évaluation de notre modèle, nous avons réalisé une étude perceptive, et fait appel à la métrique GRUEN pour évaluer automatiquement les descriptions des quêtes générées.</li>
+							Il n'y a actuellement <b>pas de consensus</b> quant à l'évaluation des modèles génératifs [Celikyilmaz et. al (2021), C. van der Lee et. al (2020)]. En nous inspirant des pratiques recommendées et de nos recherches personnelles,
+              nous avons réalisé une <b>étude perceptive</b>, et fait appel à la <b>métrique GRUEN</b> [Zhu et Bhat (2020)] pour évaluer automatiquement les descriptions des quêtes générées. Ces deux évaluations
+              viennent compléter nos premières observations, présentées précédement.
+              <br />
+              <br />
+              <section class="docs-section" id="item-5-2-1">
+              <h3 class="section-heading">Évaluation perceptive</h3>
 							<li>Pour l'étude perceptive, nous avons créé un formulaire présentant aux participants 10 quêtes, 5 desquelles ont été générées par notre modèle. Les participants ne savent pas quelles quêtes sont générées, mais connaissent la distribution établie pour ce questionnaire. Pour chaque quête, les participants doivent répondre à la même série de question.  Nous interrogeons également les participants sur leur familiarité avec le jeu Monster Hunter.</li>
 							<li>L'étude perceptive nous permet d'évaluer le langage et la thématique de chaque quête. Les critères que nous voulions évaluer humainement étaient les suivants : la grammaire, la syntaxe, la cohérence, le langage utilisé pour la quête, et la quantité d'information présente dans la quête. Pour chaque quête, les participants ont un champ de texte libre dans lequel ils peuvent rajouter des observations supplémentaires. </li>
 							<li>Les différents critères sont évalués avec des échelles de score allant de 1 à 5 (5 point likert scale).</li>
 							<li> <b>Participants :</b> les formulaires furent par la suite partagés sur les réseaux sociaux, à nos ami.e.s, nos proches, et d'autres joueurs de Monster Hunter. Tous les participants n'étaient donc pas nécessairement familier avec le jeu ou l'univers de Monster Hunter.
-							<li>La métrique <b>GRUEN</b> est un score allant de 0 à 1. Plus le score est élevé, meilleur le text généré est (en ne prenant en compte que le langage). L'intérêt de la métrique GRUEN est qu'elle évalue l'output du modèle seulement (contrairement à d'autres métriques, développées davantage pour la traduction automatique) selon quatre critères : la grammaticalité, la non-redondance, le "focus" (sujet), la structure et la cohérence. </li>
-							<li>À ces deux évaluations, nous ajoutons nos propres évaluations (sur les quêtes générées uniquement).</li>
-
-
-							<li>La génération de quête étant libre sans réelle référence (Nous pouvons par exemple générer une qûete avec un Diablos en difficulté facile et ça c'est impossible dans le jeu : le monstre est difficile à abattre !) Mais, justement il nous a semblé intéressant de voir comment le modèle construisait ses quêtes et en inventait à l'aide du corpus d'entraînement.</li>
 
 							<li>Notre étude perceptive ne rassemble pour le moment pas beaucoup de participants (à l'heure où j'écris : 12), mais nous remarquons tout de même une tendance intéressante : le critère sur lequel nous observons le plus de variabilité est la cohérence. Les participants étant familiers avec le jeu sont très souvent ceux qui utilisent les champs de texte libres pour faire part de leurs commentaires. Souvent, c'est le niveau de difficulté qui est remis en cause. Exemples : <i>"Lavasioth is not as dangerous as elder dragons, and three elder dragons make a hard quest, not a medium quest."</i>, <i>"Deviljho and "easy" in the same quest ?"</i></li>
 							<li>Les participants relèvent également parfois le manque d'information, ou bien le manque de cohérence entre la map donnée (<i>"What equipment are we talking about?"</i>), et la description qui en nomme une autre (<i>"The description suits an arena quest, not a common quest in the jungle, and Royal Ludroth is not that hard."</i>)</li>
 												</section><!--//section-->
 
-					<section class="docs-section" id="item-5-3">
-							<h2 class="section-heading">Evaluation GRUEN</h2>
-							<strong><b>Scores :</b></strong>
-							<li>'Yo Ace Ready for some awesome Arena action Prove your mettle using the equipment provided here', <b>GRUEN-score = 0.7959898336094267</b></li>
-							<li>"It has come to the Board's attention that one of our members may or may not have been seen in the Ancient Forest We are taking this matter seriously and will be contacting our other members should we learn of their location In the meantime seek out and destroy the beast", <b>GRUEN-score = 0.7180524031304696</b></li>
-							<li>"I just spotted 7 Diablos I thought they were just goofin' around What could they possibly be doin' up in the Jungle I'm goin' home now Hunter please find out for me", <b>GRUEN-score = 0.6151282347386587</b></li>
-							<li>"I've seen my share of Pink Rathian and I still can't wrap my head around how they pull this off They go from pink to purple in a matter of seconds and then there's that rumbling sound and boom I drop all my ingredients on the way back to camp", <b>GRUEN-score = 0.613164735564349</b></li>
-							<li>"The Commander of this expedition has been spotted Subspecies like these are highly valuable to the Commission's research efforts Get going hunter", <b>GRUEN-score = 0.4434186723391666</b></li>
-
+					<section class="docs-section" id="item-5-2-2">
+							<h3 class="section-heading">Évaluation avec la métrique GRUEN</h3>
+              La métrique <b>GRUEN</b> [Zhu et Bhat(2020)] est un score allant de 0 à 1. Plus le score est élevé, meilleur le text généré est (en ne prenant en compte que le langage).
+              L'intérêt de la métrique GRUEN est qu'elle évalue l'output du modèle seulement (contrairement à d'autres métriques, développées davantage pour la traduction automatique) selon quatre critères : la grammaticalité, la non-redondance, le "focus" (sujet), la structure et la cohérence. </li>
+              <br />
+              <br />
+              <table>
+              <caption>
+                <center><strong><b>Table 1 — Scores GRUEN pour 5 de nos quêtes générées</b></strong></center>
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">QUEST_ID</th>
+                  <th scope="col">QUEST</th>
+                  <th scope="col">GRUEN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>"Yo Ace Ready for some awesome Arena action Prove your mettle using the equipment provided here"</td>
+                  <td>0.806</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>"It has come to the Board's attention that one of our members may or may not have been seen in the
+                    Ancient Forest We are taking this matter seriously and will be contacting our other members should we
+                    learn of their location In the meantime seek out and destroy the beast"</td>
+                  <td>0.7200</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>"I just spotted 7 Diablos I thought they were just goofin' around What could they possibly be doin' up in the Jungle
+                     I'm goin' home now Hunter please find out for me"</td>
+                  <td>0.6151</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>"I've seen my share of Pink Rathian and I still can't wrap my head around how they pull this off They go from pink to purple
+                    in a matter of seconds and then there's that rumbling sound and boom I drop all my ingredients on the way back to camp"</td>
+                  <td>0.6131</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>"The Commander of this expedition has been spotted Subspecies like these are highly valuable to the Commission's research efforts Get going hunter"</td>
+                  <td>0.4434</td>
+                </tr>
+              </tbody>
+            </table>
 							   </ul>					</section><!--//section-->
+               </section>
 			    </article><!--//docs-article-->
 
 
@@ -449,10 +492,18 @@
 
 			    <article class="docs-article" id="section-8">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">Resources</h1>
+					    <h1 class="docs-heading">Bibliographie</h1>
 					    <section class="docs-intro">
-<p>Monster hunter, Teppen, source métrique léna</p>						</section><!--//docs-intro-->
-				    </header>
+              <p>Monster hunter, Teppen, source métrique léna</p>						</section><!--//docs-intro-->
+              <ol>
+               <li>Wangzhen Zhu, Suma Bhat (2020):
+            <cite>GRUEN for Evaluating Linguistic Quality of Generated Text.</cite></li>
+             <li>Celikyilmaz et. al (2021):
+          <cite>Evaluation of Text Generation: A Survey.</cite></li>
+             <li>van der Lee et. al (2020):
+          <cite>Human evaluation of automatically generated text: Current trends and best practice guidelines</cite></li>
+        </ol>
+            </header>
 				     <section class="docs-section" id="item-8-1">
 						<h2 class="section-heading">Section Item 8.1</h2>
 						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
