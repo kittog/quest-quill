@@ -330,23 +330,25 @@
 					    <h1 class="docs-heading">Résultats</h1>
 					    <section class="docs-intro">
 							<ul style="text-align: justify;">
-								<li> Résultat sous la forme d'une quête générée</li>
-								<li>Lorsque l'utilisateur a rentré ses critères une quête est générée voir ci-dessous</li>
+								<li>Une fois que l'utilisateur a rentré ses critères (map, difficulty, et target), Quest-quill génère l'objectif et la description
+                correspondants.</li>
+								<li>Ci-dessous, un aperçu de l'interface de Quest-quill après la génération d'une quête.</li>
 								<img src="image/exemple2.png">
 										</ul>						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-5-1">
 						<h2 class="section-heading">
-							Visualisation de certains outpus et notre avis</h2>
+							Visualisation de certains outputs et évaluation inter-annotateurs</h2>
 						<ul style="text-align: justify;">
-							<li> A notre surprise le modèle génère des quetes avec peu de fautes de grammaire, de plus les quêtes générées parviennent à reproduire des traits d'humour dans les quêtes de référence.</li>
-							<li>Lorsque nous demandons des quetes avec plusieurs monstres le modèle parvient à changer l'objectif en précisant bien qu'il faut tuer plusieurs monstres</li>
-							<li>Plusieurs types d'erreurs sont cependant ressorties</li>
-							<li>Par moment lorsque nous demandons une map par exemple le desert , le modèle peut générer une quête qui se produit dans une arene en spécifiant que c'est dans une arène</li>
-							<li> Mais par moment il décrit bien le bon lieu ce n'est pas une faute réccurente</li>
-							<li>Le modèle lorsque nous mentionnons plusieurs monstres se focalisent souvent dans la description que sur un monstre</li>
-							<li>Lorsque nous sommes adeptes de ce jeu des incohérences se construisent mais cela est dû à nos choix de critères :</li>
-							<li> Demander un Diablos en difficulté facile , c'est pas courant dans le jeu vidéo, le diablos est un monstre compliqué. Les quêtes faciles du jeu sont de tuer par exemple 7 petits monstres, le modèle si on lui demander de generer une quete facile avec le Diablos , il va nous dire d'aller chasser 7 diablos en facile. C'est pas facile , c'est dur voir extrême ! BON COURAGE !</li>
+							<li>À notre surprise le modèle génère des quêtes avec <b>peu de fautes de grammaire</b> ou de <b>syntaxe</b>. De plus, les quêtes générées parviennent à reproduire des <b>traits d'humour</b> déjà présents dans les quêtes de référence.</li>
+							<li>Nous notons cependant <b>plusieurs erreurs</b> : quelques fois, lorsque nous demandions une quêtes dans la map <b>"desert"</b>, le modèle générait une quête spécifique à la map <b>"arena"</b> (arène), en spécifiant dans la description que l'action se déroulait dans l'arène. Dans
+              le questionnaire que nous avons établis pour l'étude perceptive, l'une des quêtes présentées montrait que la map choisie était la jungle, mais la description mentionnait une arène.</li>
+							<li>Lorsque <b>plusieurs monstres</b> étaient listés comme <i>cible</i> (target), le modèle a tendance à <b>oublier certains monstres</b> dans la <i>description</i>, voir même à ne pas mentionner le moindre monstre. Cependant, il arrive à prendre
+              en compte <b>le nombre de monstres</b> dans l'<i>objectif</i> généré (exemple : <i>Hunt all monsters.</i>)</li>
+							<li>Pour les adeptes du jeu, les <b>incohérences produites</b> par notre modèle se repèrent facilement. La génération étant libre (l'utilisateur peut remplir les champs map, difficulty, target comme bon lui semble), nous pouvons créer ces "incohérences". L'intérêt ici est
+              de voir si le modèle est capable de générer des combinaison qu'il n'aurait pas rencontrées lors de l'entraînement.</li>
+							<li>Par exemple, demander <b>un Diablos en difficulté facile</b> n'est pas courant dans le jeu vidéo : le Diablos est un monstre compliqué à abattre. Une quête facile du jeu serait par exemple de tuer 7 petits monstres. Ainsi, si on demande au modèle de générer
+                une quête facile avec pour cible un Diablos, le modèle va donner à l'utilisateur pour mission d'aller <b>chasser 7 Diablos</b>, une tâche loin d'être facile ! Abattre 7 Diablos, c'est dur, voir extrême ! BON COURAGE !</li>
 
 									</ul>
 
@@ -359,7 +361,7 @@
 							<li>Il n'y a actuellement pas de consensus quant à l'évaluation des modèles génératifs. Pour l'évaluation de notre modèle, nous avons réalisé une étude perceptive, et fait appel à la métrique GRUEN pour évaluer automatiquement les descriptions des quêtes générées.</li>
 							<li>Pour l'étude perceptive, nous avons créé un formulaire présentant aux participants 10 quêtes, 5 desquelles ont été générées par notre modèle. Les participants ne savent pas quelles quêtes sont générées, mais connaissent la distribution établie pour ce questionnaire. Pour chaque quête, les participants doivent répondre à la même série de question.  Nous interrogeons également les participants sur leur familiarité avec le jeu Monster Hunter.</li>
 							<li>L'étude perceptive nous permet d'évaluer le langage et la thématique de chaque quête. Les critères que nous voulions évaluer humainement étaient les suivants : la grammaire, la syntaxe, la cohérence, le langage utilisé pour la quête, et la quantité d'information présente dans la quête. Pour chaque quête, les participants ont un champ de texte libre dans lequel ils peuvent rajouter des observations supplémentaires. </li>
-							<li>Les différents critères sont évalués avec des échelles de score allant de 1 à 5 (likert 5 scale).</li>
+							<li>Les différents critères sont évalués avec des échelles de score allant de 1 à 5 (5 point likert scale).</li>
 							<li> <b>Participants :</b> les formulaires furent par la suite partagés sur les réseaux sociaux, à nos ami.e.s, nos proches, et d'autres joueurs de Monster Hunter. Tous les participants n'étaient donc pas nécessairement familier avec le jeu ou l'univers de Monster Hunter.
 							<li>La métrique <b>GRUEN</b> est un score allant de 0 à 1. Plus le score est élevé, meilleur le text généré est (en ne prenant en compte que le langage). L'intérêt de la métrique GRUEN est qu'elle évalue l'output du modèle seulement (contrairement à d'autres métriques, développées davantage pour la traduction automatique) selon quatre critères : la grammaticalité, la non-redondance, le "focus" (sujet), la structure et la cohérence. </li>
 							<li>À ces deux évaluations, nous ajoutons nos propres évaluations (sur les quêtes générées uniquement).</li>
