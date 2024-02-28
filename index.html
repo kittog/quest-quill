@@ -1,348 +1,230 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en"> 
 <head>
-    <meta charset="UTF-8">
+    <title>Quest Quill</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet de RNN</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body>
-
-    <header>
-        <h1>Quest Quill</h1>
-    </header>
-
-
-    <nav>
-        <a href="#generate">Manuel Quest Quill</a>
-        <a href="#documentation">Documentation</a>
-        <a href="#evaluation">Évaluation</a>
-        <a href="#modelbert">Modèle BERT</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="generate" class="ai-section" style="position: relative;">
-        <h2>Projet Quest Quill  </h2>
-        <p style="text-align: justify;"><strong>Qu'est ce que c'est ?</strong></p>
-        <div style="text-align: justify;">
-                <p>Quest Quill est un générateur de quêtes automatiques . L'utilisateurs spécifie la carte ou il souhaite combatre, le monstre qu'il souhaite abattre ainsi que la difficulté de la quête.</p>
-                <p>Suite aux indications données par l'utilisateurs, QUest Quill va générer une quête avec un contexte et un objectif à accomplir</p>
-                <p style="text-align: justify;"><strong>Et pourquoi ?</strong></p>
-                <p>Le monde étant en grand danger suite aux multiples attaques de monstres. Il nous a semblé urgent de nous entraîner à combattre à l'aide d'un générateur de quêtes automatiques. Les objectifs de cet entraînement sont, dans un premier temps générer des quetes avec des conditions telles que : map, difficulté, monstre. Dans un second temps les quetes devront avoir de la cohérence et de l'humour. Ce sont des quetes qui servent à divertir ! </p>
+    <meta name="description" content="Bootstrap Documentation Template For Software Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
     
-        
-
-        <h2>Manuel Quest Quill</h2>
-        <p style="text-align: justify;"><strong>Prérequis :</strong></p>
-        <ul style="text-align: justify;">
-            <li>Python 3.x installé sur votre système.</li>
-            <li>Bibliothèque Transformers de Hugging Face installée (<code>pip install transformers</code>).</li>
-            <li>Le modèle pré-entraîné GPT-2 et son tokenizer.</li>
-            <li>FastAPI</li>
-            <li>Uvicorn</li>
-        </ul>
-        <p style="text-align: justify;"><strong>Comment lancer l'interface web ?</strong> </p>
-        <p style="text-align: justify;"> se déplacer dans le terminal à l'endroit ou se trouve "main.py" ainsi que deux dossiers  static et modele</p>
-        <p style="text-align: justify;"> lancer l'interface à l'aide de la commande ci dessous : </p>
-        <p style="text-align: justify;"> python -m uvicorn main:app --reload</p>
-
-        <p style="text-align: justify;"><strong>Comment générer une quête une fois sur l'interface ?</strong> </p>
-        <p style="text-align: justify;">Afin de générer la quête, il faut mentionner dans l'espace dédié:</p>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
     
-                <ul style="text-align: justify;">
-                    <li>La carte où se déroulera la quête pour pouvoir s'acclimater à divers environnements de combat.</li>
-                    <li>La difficulté de la quête à choisir entre easy, medium, hard</li>
-                    <li>Le ou les monstres à chasser.</li>
-                </ul>
-        <head>
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
 
-            <style>
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-                th, td {
-                    border: 1px solid black;
-                    padding: 8px;
-                    text-align: left;
-                }
-                th {
-                    background-color: #f2f2f2;
-                }
-            </style>
-        </head>
-        <body>
-        
-        <h2>Bestiaire A COMPLETER</h2>
-        
-        <table> 
-            <tr>
-                <td>Jagras</td>
-                <td>Baggi</td>
-                <td>Arzuros</td>
-                <td>Great Baggi</td>
-            </tr>
-            <tr>
-                <td>Lagombi</td>
-                <td>Kulu-Ya-Ku</td>
-                <td>Tetranadon</td>
-                <td>Aknosom</td>
-            </tr>
-            <tr>
-                <td>Great Izuchi</td>
-                <td>Royal Ludroth</td>
-                <td>Barroth</td>
-                <td>Khezu</td>
-            </tr>
-            <tr>
-                <td>Bishaten</td>
-                <td>Somnacanth</td>
-                <td>Pukei-Pukei</td>
-                <td>Jyuratodus</td>
-            </tr>
-            <tr>
-                <td>Basarios</td>
-                <td>Rathian</td>
-                <td>Tobi-Kadachi</td>
-                <td>Volvidon</td>
-            </tr>
-            <tr>
-                <td>Mizutsune</td>
-                <td>Anjanath</td>
-                <td>Rathalos</td>
-                <td>Almudron</td>
-            </tr>
-            <tr>
-                <td>Goss Harag</td>
-                <td>Nargacuga</td>
-                <td>Zinogre</td>
-                <td>Magnamalo</td>
-            </tr>
-            <tr>
-                <td>Tigrex</td>
-                <td>Diablos</td>
-                <td>Rajang</td>
-                <td>Kushala Daora</td>
-            </tr>
-            <tr>
-                <td>Teostra</td>
-                <td>Chameleos</td>
-                <td>Wind Serpent Ibushi</td>
-                <td>Thunder Serpent Narwa</td>
-            </tr>
-            <tr>
-                <td>Narwa the Allmother</td>
-                <td>Crimson Glow Valstrax</td>
-                <td>Apex Arzuros</td>
-                <td>Apex Rathian</td>
-            </tr>
-            <tr>
-                <td>Apex Mizutsune</td>
-                <td>Apex Rathalos</td>
-                <td>Apex Diablos</td>
-                <td>Apex Zinogre</td>
-            </tr>
-        </table>
-        
-        </body>
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
 
+</head> 
 
-        <h2>Map</h2>
-        
-    </section>
+<body>    
+    <header class="header fixed-top">	 
+	       
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+	                <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/coderdocs-logo.svg" alt="logo"><span class="logo-text">Quest Quill<span class="text-alt"></span></span></a></div>    
+                </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	
+					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+						<li class="list-inline-item"><a href="https://github.com/kittog/quest-quill"><i class="fab fa-github fa-fw"></i></a></li>
+
+		            </ul><!--//social-list-->
+		            <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+	            </div><!--//docs-top-utilities-->
+            </div><!--//container-->
+        </div><!--//branding-->
+    </header><!--//header-->
     
     
-    <style>
-        .sub-section {
-            font-weight: bold;
-        }
-    </style>
-    
-    <section id="documentation" class="ai-section">
-        <h2>Documentation</h2>
- 
-                <span class="sub-section">Données utilisées</span>
-                <p style="text-align: justify;"> Les données qui ont été utilisées dans ce projet viennent d'un dépôt GitHub libre sous licence MIT: <a href="https://github.com/CrimsonNynja/monster-hunter-DB/tree/master">https://github.com/CrimsonNynja/monster-hunter-DB/tree/master</a></p>
-                <p style="text-align: justify;">Ce sont des données qui proviennent du jeu vidéo Monster Hunter, ces données sont des quêtes de ce même jeu vidéo : un jeu de combat entre chasseur et monstres hyper classes. La particularité des quêtes de Monster Hunter, c'est qu'elles sont simplement construites : un monstre à tuer, le contexte, l'objectif, la carte et la difficulté. Ce qui est parfait pour notre projet. En plus de ça, ce sont des quêtes qui ont un fond d'humour ce qui nous permet de rire malgré le destin du monde qui s'avère bien noir...</p>
-            </p>
-    
-            <p>
-                    <span class="sub-section">Prétraitement</span>
-                    <ul style="text-align: justify;">
-                        <li>Les données du dépôt GitHub sont sous un format JSON avec plusieurs types de balises : target, objective, map, difficulty.</li>
-                        <li>Nous avons un total de 848 quêtes pour l'entraînement</li>
-                        <li>Extraction du contenu des balises qui nous interessent dans le projet : difficulty, objective, target, description, du corpus json à l'aide du script bla.py  </li>
-                        <li>Suite à l'extraction notre corpus est construit sous un format txt de cette forme : </li>
-                        <li>Exemple : Map : Desert | Difficulty : easy | Objective : Kill a Rathian | Description blabla....</li>
-                        <li>Simplification du corpus en retirant x monstres du corpus. Leurs noms a été synthéthiser , exemple : Apex Nargacuga -> Nargacuga et des maps en retirant x maps</li>
-                        <li> La simplification a été réalisé suite à des génération de quêtes de notre part. Il y avait trop de monstres pour peu de quêtes ce qui posait problème lors de la génération de l'objectif ou il se trompait de monstres</li>
-                        <li>La suppression du format json a été réalisé pour nous simplifier la visibilité , le rendu de l'api et le code</li>
-                    </ul>
-                
-            </p>
-            <span class="sub-section">Fine tuning GPT2</span>
-            <ul style="text-align: justify;">
-                <li>L'entraînement a été réalisé avec le script train.py</li>
-                <li>Le modèle utilisé est GPT2 medium pour éviter les longs délais d'entraînement qu'impliquerait la version large.</li>
-                <li>Incorporation d'un corpus au format txt pour les données d'entraînement.</li>
-                <li>Apprentissage basé sur des blocs textuels de taille 75, permettant de couvrir intégralement une quête. (la moyenne de longueur d'une quête est d'environ 75 d'ou ce choix)</li>
-                <li>10 epochs et un batch size de 10 ont été choisis</li>
-                <li>La génération a été réalisé avec generate.py</li>
-                <li>Limitation à 75 max de n-grammes générés pour la génération de texte.</li>
-                <li>La température contrôle le niveau de créativité, avec des valeurs plus élevées générant des sorties plus variées mais moins cohérentes.</li>
-                <li>Top-K Sampling limite les choix de tokens aux K tokens les plus probables, favorisant la cohérence tout en permettant de la variété.</li>
-                <li>Top-P Sampling (Nucleus Sampling) limite la distribution cumulative des probabilités, permettant une génération plus dynamique parmi les tokens les plus probables.</li>
-                <li>No Repeat N-Grams empêche la répétition immédiate de séquences de mots pour éviter les motifs répétitifs indésirables.</li>
-                <li>Les paramètres de génération peuvent être ajustés pour obtenir les résultats souhaités.</li>
-                <li>Le prompt spécifié en back end est :  Map : {map} | Dificulty : {level} | Target : {monstres} </li>
-                <li>Ce prompt permet d'inciter le modèle à générer la suite de la quête -> Objectif , Description</li>
-                <li> Nous avons choisi les hyper paramètres pour la génération de manière empirique , au début nous avons générés avec un max lenght de 175 c'était beaucoup trop il était très incohérent dans les descriptions</li>
-                <li>top k et top p ont été utilisés pour que les quêtes générées soit à chaque fois différente , au départ avec certains mots clefs on avait toujours la même quête c'etait pas amusant</li>
+    <div class="page-header theme-bg-dark py-5 text-center position-relative">
+	    <div class="theme-bg-shapes-right"></div>
+	    <div class="theme-bg-shapes-left"></div>
+	    <div class="container">
+		    <h1 class="page-heading single-col-max mx-auto">Documentation</h1>
+		    <div class="page-intro single-col-max mx-auto">blabla</div>
 
-            </ul>
+	    </div>
+    </div><!--//page-header-->
+   <div class="page-content">
+	    <div class="container">
+		    <div class="docs-overview py-5">
+			    <div class="row justify-content-center">
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								    <span class="theme-icon-holder card-icon-holder me-2">
+								        <i class="fas fa-map-signs"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">Projet Quest Quill</span>
+							    </h5>
+							    <div class="card-text">
+Informations sur le projet							    </div>
+							    <a class="card-link-mask" href="docs-page.html#section-1"></a>
+						    </div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								    <span class="theme-icon-holder card-icon-holder me-2">
+								        <i class="fas fa-arrow-down"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">Installation</span>
+							    </h5>
+							    <div class="card-text">
+Section qui donne des indications sur l'installation de QuestQuill							    </div>
+							    <a class="card-link-mask" href="docs-page.html#section-2"></a>
+						    </div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								    <span class="theme-icon-holder card-icon-holder me-2">
+								        <i class="fas fa-box fa-fw"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">Modèle GPT-2 Fine Tunning</span>
+							    </h5>
+							    <div class="card-text">
+Section qui donne des informations sur la conception du modèle								</div>
+							    <a class="card-link-mask" href="docs-page.html#section-3"></a>
+						    </div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								    <span class="theme-icon-holder card-icon-holder me-2">
+								        <i class="fas fa-cogs fa-fw"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">Integrations FastAPI</span>
+							    </h5>
+							    <div class="card-text">
+Section qui donne des informations sur la conception de l'api								</div>
+							    <a class="card-link-mask" href="docs-page.html#section-4"></a>
+						    </div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								    <span class="theme-icon-holder card-icon-holder me-2">
+								        <i class="fas fa-tools"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">Résultats</span>
+							    </h5>
+							    <div class="card-text">
+Section qui constitue notre partie résultat								</div>
+							    <a class="card-link-mask" href="docs-page.html#section-5"></a>
+						    </div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								    <span class="theme-icon-holder card-icon-holder me-2">
+								        <i class="fas fa-laptop-code"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">Essaie Bert</span>
+							    </h5>
+							    <div class="card-text">
+Section qui parle brièvement d'un essai sur BERT								</div>
+							    <a class="card-link-mask" href="docs-page.html#section-6"></a>
+						    </div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								    <span class="theme-icon-holder card-icon-holder me-2">
+								        <i class="fas fa-tablet-alt"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">Contact</span>
+							    </h5>
+							    <div class="card-text">
+Section qui montre nos têtes								</div>
+							    <a class="card-link-mask" href="docs-page.html#section-7"></a>
+						    </div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								    <span class="theme-icon-holder card-icon-holder me-2">
+								        <i class="fas fa-book-reader"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">Resources</span>
+							    </h5>
+							    <div class="card-text">
+Section qui contient nos ressources								</div>
+							    <a class="card-link-mask" href="docs-page.html#section-8"></a>
+						    </div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+
+				    </div><!--//col-->
+			    </div><!--//row-->
+		    </div><!--//container-->
+		</div><!--//container-->
+    </div><!--//page-content-->
+
+    <section class="cta-section text-center py-5 theme-bg-dark position-relative">
+	    <div class="theme-bg-shapes-right"></div>
+	    <div class="theme-bg-shapes-left"></div>
+	    <div class="container">
+		    <h3 class="mb-2 text-white mb-3">Retrouve nous sur Github </h3>
+		    <div class="section-intro text-white mb-3 single-col-max mx-auto">blabla<a class="text-white" href=""></a></div>
+		    <div class="pt-3 text-center">
+			    <a class="btn btn-light" href="https://github.com/kittog/quest-quill">Get Github<i class="fas fa-arrow-alt-circle-right ml-2"></i></a>
+		    </div>
+	    </div>
+    </section><!--//cta-section-->
+
+    <footer class="footer">
+
+	    <div class="footer-bottom text-center py-5">
+		    
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://github.com/kittog/quest-quill"><i class="fab fa-github fa-fw"></i></a></li> 
+
+	        </ul><!--//social-list-->
+	        
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
             
-        </p>
-        <span class="sub-section">FastAPI</span>
-        <ul style="text-align: justify;">
-<li> Création d'une interface web avec FastAPI</li>
-<li>Interface web avec 3 critères à inserer </li>
-<img src="image/exemple.png">
-        </ul>
-        <span class="sub-section">Méthodologie</span>
-
-    </p>
-    <ul style="text-align: justify;">
-        <li>Qinliang QI : Test du modèle BERT pour la génération automatique de quêtes.</li>
-        <li>Natacha MINICONI : Recherche sur la conception d'un fine-tuning sur GPT2 pour la génération automatique de modèles.</li>
-        <li>Léna GAUBERT : Prétraitement du fichier texte et évaluation du modèle à retenu entre GPT2 et BERT.</li>
-        <li>Évaluation collective : Après l'évaluation par Léna, Qinliang et Natacha examinent également les résultats pour apporter leur perception individuelle sur les quêtes générées.</li>
-    </ul>
-    
-    
-            <p>
-
-    
-            <p>
-                <span class="sub-section">Résultats</span>
-            </p> 
-            <ul style="text-align: justify;">
-                <li> Résultat sous la forme d'une quête générée</li>
-                <li>Lorsque l'utilisateur a rentré ses critères une quête est générée voir ci-dessous</li>
-                <img src="image/exemple2.png">
-                        </ul>
-                        <span class="sub-section">Discussion des résultats</span>
-                    </p> 
-                    <ul style="text-align: justify;">
-                        <li> A notre surprise le modèle génère des quetes avec peu de fautes de grammaire, de plus les quêtes générées parviennent à reproduire des traits d'humour dans les quêtes de référence.</li>
-                        <li>Lorsque nous demandons des quetes avec plusieurs monstres le modèle parvient à changer l'objectif en précisant bien qu'il faut tuer plusieurs monstres</li>
-                        <li>Plusieurs types d'erreurs sont cependant ressorties</li>
-                        <li>Par moment lorsque nous demandons une map par exemple le desert , le modèle peut générer une quête qui se produit dans une arene en spécifiant que c'est dans une arène</li>
-                        <li> Mais par moment il décrit bien le bon lieu ce n'est pas une faute réccurente</li>
-                        <li>Le modèle lorsque nous mentionnons plusieurs monstres se focalisent souvent dans la description que sur un monstre</li>
-                        <li>Lorsque nous sommes adeptes de ce jeu des incohérences se construisent mais cela est dû à nos choix de critères :</li>
-                        <li> Demander un Diablos en difficulté facile , c'est pas courant dans le jeu vidéo, le diablos est un monstre compliqué. Les quêtes faciles du jeu sont de tuer par exemple 7 petits monstres, le modèle si on lui demander de generer une quete facile avec le Diablos , il va nous dire d'aller chasser 7 diablos en facile. C'est pas facile , c'est dur voir extrême ! BON COURAGE !</li>
-
-                                </ul>
-                        <span class="sub-section">Méthodologie</span>
-                
-                    </p>
-                    <ul style="text-align: justify;">
-                        <li>Qinliang QI : Test du modèle BERT pour la génération automatique de quêtes.</li>
-                        <li>Natacha MINICONI : Recherche sur la conception d'un fine-tuning sur GPT2 pour la génération automatique de modèles.</li>
-                        <li>Léna GAUBERT : Prétraitement du fichier texte et évaluation du modèle à retenu entre GPT2 et BERT.</li>
-                        <li>Évaluation collective : Après l'évaluation par Léna, Qinliang et Natacha examinent également les résultats pour apporter leur perception individuelle sur les quêtes générées.</li>
-                    </ul>
-            <p>
-                <span class="sub-section">Sources</span>
-            </p>            <ul style="text-align: justify;">
-                <li>Teppen pour les images</li>
-                <li>Monster hunter</li>
-
-                        </ul>
-        </div>
-    </section>
-    
-    <section id="evaluation" class="ai-section">
-        <h2>Évaluation du Modèle</h2>
-        <ul style="text-align: justify;">
-        
-        	<li>Il n'y a actuellement pas de consensus quant à l'évaluation des modèles génératifs. Pour l'évaluation de notre modèle, nous avons réalisé une étude perceptive, et fait appel à la métrique GRUEN pour évaluer automatiquement les descriptions des quêtes générées.</li>
-        	<li>Pour l'étude perceptive, nous avons créé un formulaire présentant aux participants 10 quêtes, 5 desquelles ont été générées par notre modèle. Les participants ne savent pas quelles quêtes sont générées, mais connaissent la distribution établie pour ce questionnaire. Pour chaque quête, les participants doivent répondre à la même série de question.  Nous interrogeons également les participants sur leur familiarité avec le jeu Monster Hunter.</li>
-        	<li>L'étude perceptive nous permet d'évaluer le langage et la thématique de chaque quête. Les critères que nous voulions évaluer humainement étaient les suivants : la grammaire, la syntaxe, la cohérence, le langage utilisé pour la quête, et la quantité d'information présente dans la quête. Pour chaque quête, les participants ont un champ de texte libre dans lequel ils peuvent rajouter des observations supplémentaires. </li>
-        	<li>Les différents critères sont évalués avec des échelles de score allant de 1 à 5 (likert 5 scale).</li>
-        	<li> <b>Participants :</b> les formulaires furent par la suite partagés sur les réseaux sociaux, à nos ami.e.s, nos proches, et d'autres joueurs de Monster Hunter. Tous les participants n'étaient donc pas nécessairement familier avec le jeu ou l'univers de Monster Hunter. 
-        	<li>La métrique <b>GRUEN</b> est un score allant de 0 à 1. Plus le score est élevé, meilleur le text généré est (en ne prenant en compte que le langage). L'intérêt de la métrique GRUEN est qu'elle évalue l'output du modèle seulement (contrairement à d'autres métriques, développées davantage pour la traduction automatique) selon quatre critères : la grammaticalité, la non-redondance, le "focus" (sujet), la structure et la cohérence. </li>
-        	<li>À ces deux évaluations, nous ajoutons nos propres évaluations (sur les quêtes générées uniquement).</li>
-        	
-        	
-            <li>La génération de quête étant libre sans réelle référence (Nous pouvons par exemple générer une qûete avec un Diablos en difficulté facile et ça c'est impossible dans le jeu : le monstre est difficile à abattre !) Mais, justement il nous a semblé intéressant de voir comment le modèle construisait ses quêtes et en inventait à l'aide du corpus d'entraînement.</li>
-            
-            <li>Notre étude perceptive ne rassemble pour le moment pas beaucoup de participants (à l'heure où j'écris : 12), mais nous remarquons tout de même une tendance intéressante : le critère sur lequel nous observons le plus de variabilité est la cohérence. Les participants étant familiers avec le jeu sont très souvent ceux qui utilisent les champs de texte libres pour faire part de leurs commentaires. Souvent, c'est le niveau de difficulté qui est remis en cause. Exemples : <i>"Lavasioth is not as dangerous as elder dragons, and three elder dragons make a hard quest, not a medium quest."</i>, <i>"Deviljho and "easy" in the same quest ?"</i></li>
-            <li>Les participants relèvent également parfois le manque d'information, ou bien le manque de cohérence entre la map donnée (<i>"What equipment are we talking about?"</i>), et la description qui en nomme une autre (<i>"The description suits an arena quest, not a common quest in the jungle, and Royal Ludroth is not that hard."</i>)</li>
-            
- 	<b>GRUEN:</b>
- 	<li>Nous évaluons la description de chaque quête générée avec le score GRUEN. Il est important de noter que le script n'est pas en accord avec la dernière version de SpaCy, et que nous ne sommes pas parvenues à débugger le code. À l'heure actuelle, le code de GRUEN ne permet pas d'évaluer des séquences en prenant en compte leur ponctuation. Ceci nous pose quelque peu problème étant donné que les descriptions de nos quêtes sont consituées très souvent de plusieurs phrases, avec une ponctuation variée.</li>
- 	<li>Suite à ce problème, nous avons finalement donné à GRUEN les descriptions des 5 quêtes générées présentées dans notre questionnaire, en enlevant toute ponctuation. Il est évident que cela a un impact sur les scores obtenus.</li>
- 	
- 	<b>Scores :</b>
- 	<li>'Yo Ace Ready for some awesome Arena action Prove your mettle using the equipment provided here', <b>GRUEN-score = 0.7959898336094267</b></li>
- 	<li>"It has come to the Board's attention that one of our members may or may not have been seen in the Ancient Forest We are taking this matter seriously and will be contacting our other members should we learn of their location In the meantime seek out and destroy the beast", <b>GRUEN-score = 0.7180524031304696</b></li>
- 	<li>"I just spotted 7 Diablos I thought they were just goofin' around What could they possibly be doin' up in the Jungle I'm goin' home now Hunter please find out for me", <b>GRUEN-score = 0.6151282347386587</b></li>
- 	<li>"I've seen my share of Pink Rathian and I still can't wrap my head around how they pull this off They go from pink to purple in a matter of seconds and then there's that rumbling sound and boom I drop all my ingredients on the way back to camp", <b>GRUEN-score = 0.613164735564349</b></li>
- 	<li>"The Commander of this expedition has been spotted Subspecies like these are highly valuable to the Commission's research efforts Get going hunter", <b>GRUEN-score = 0.4434186723391666</b></li>
-
-        </ul>
-    </section>
-
-    <section id="modelbert" class="ai-section">
-        <h2>Modèle BERT</h2>
-        <p>Informations sur le modèle BERT, problèmes rencontrées...</p>
-    </section>
-    <section class="ai-section">
-        <h2>Futur</h2>
-        <p>Pour la suite, nous aimerions continuer de travailler dessus mais avec d'autres jeux vidéos.</p>
-        <p> Avoir un corpus plus grand , balisé en fonction de thématique ( par exemple avoir un corpus fantasy, medieval), plus de critère...</p>
-        <p>Nous aurions aimé tester la version large de GPT2 ou  d'autres modèles que celui-ci comme Bart </p>
-        <p>L'idée egalement de pouvoir generer des quêtes avec de multiples environnement : monster hunter avec final fantasy ça peut être drole !</p>
-    </section>
-    <section id="contact" class="ai-section">
-        <h2>Contact</h2>
-        <div style="text-align: center; display: flex; justify-content: center;">
-
-            <div style="margin: 10px;">
-                <img src="image/Icon2.jpg" alt="Image 2" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-                <div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
-                    <p>Natacha Miniconi</p>
-                </div>
-            </div>
-            <div style="margin: 10px;">
-                <img src="image3.jpg" alt="Image 3" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
-                <div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
-                    <p>Léna Gaubert</p>
-                </div>
-            </div>
-            <div style="margin: 10px;">
-                <img src="image3.jpg" alt="Image 3" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
-                <div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
-                    <p>Qinliang QI</p>
-                </div>
-            </div>
-            <div style="margin: 10px;">
-                <img src="image/Icon1.jpg" alt="Image 1" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-                <div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
-                    <p>Perl</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    
-    
-    
-    
-    <footer class="ai-section">
-        <p>&copy; 2024 Projet de génération de quête de JDR</p>
+	        
+	    </div>
+	    
     </footer>
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
 
 </body>
-</html>
+</html> 
+

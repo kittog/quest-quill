@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Quest Quill</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Bootstrap 4 Template For Software Startups">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+</head> 
+
+<body class="docs-page">    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/coderdocs-logo.svg" alt="logo"><span class="logo-text">Quest Quil<span class="text-alt"></span></span></a></div>    
+                </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	                <div class="top-search-box d-none d-lg-flex">
+		                <form class="search-form">
+				            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+				            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+				        </form>
+	                </div>
+	
+					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+						<li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+		                <li class="list-inline-item"><a href="#"><i class="fab fa-slack fa-fw"></i></a></li>
+		                <li class="list-inline-item"><a href="#"><i class="fab fa-product-hunt fa-fw"></i></a></li>
+		            </ul><!--//social-list-->
+		            <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+	            </div><!--//docs-top-utilities-->
+            </div><!--//container-->
+        </div><!--//branding-->
+    </header><!--//header-->
+    
+    
+    <div class="docs-wrapper">
+	    <div id="docs-sidebar" class="docs-sidebar">
+		    <div class="top-search-box d-lg-none p-3">
+                <form class="search-form">
+		            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+		            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+		        </form>
+            </div>
+		    <nav id="docs-nav" class="docs-nav navbar">
+			    <ul class="section-items list-unstyled nav flex-column pb-3">
+				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Objectifs</a></li>
+
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-2"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Installation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Section Item 2.1</a></li>
+
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>APIs</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Données utilisées</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Prétraitement</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Fine Tunning GPT2</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>Integrations FastAPI</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Apparence</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Section Item 4.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Section Item 4.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-5"><span class="theme-icon-holder me-2"><i class="fas fa-tools"></i></span>Résultats</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Visualisation de certains outpus et notre avis</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Evaluation perceptive</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">Evaluation GRUEN</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2"><i class="fas fa-laptop-code"></i></span>Essai Modèle BERT</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Section Item 6.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">Section Item 6.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-3">Section Item 6.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-7"><span class="theme-icon-holder me-2"><i class="fas fa-tablet-alt"></i></span>Contact</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">L'équipe</a></li>
+
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-8"><span class="theme-icon-holder me-2"><i class="fas fa-book-reader"></i></span>Resources</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">Section Item 8.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2">Section Item 8.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3">Section Item 8.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-9"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>FAQs</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1">Section Item 9.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-2">Section Item 9.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-3">Section Item 9.3</a></li>
+			    </ul>
+
+		    </nav><!--//docs-nav-->
+	    </div><!--//docs-sidebar-->
+	    <div class="docs-content">
+		    <div class="container">
+			    <article class="docs-article" id="section-1">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Quest Quill qu'est ce que c'est ? <span class="docs-time">Last updated: 2019-06-01</span></h1>
+					    <section class="docs-intro">
+						    <p>Quest Quill est un générateur de quêtes automatiques . L'utilisateurs spécifie la carte ou il souhaite combatre, le monstre qu'il souhaite abattre ainsi que la difficulté de la quête.</p>
+							<p>Suite aux indications données par l'utilisateurs, QUest Quill va générer une quête avec un contexte et un objectif à accomplir</p>
+							<p style="text-align: justify;"><strong>Et pourquoi ?</strong></p>
+							<p>Le monde étant en grand danger suite aux multiples attaques de monstres. Il nous a semblé urgent de nous entraîner à combattre à l'aide d'un générateur de quêtes automatiques. Les objectifs de cet entraînement sont, dans un premier temps générer des quetes avec des conditions telles que : map, difficulté, monstre. Dans un second temps les quetes devront avoir de la cohérence et de l'humour. Ce sont des quetes qui servent à divertir ! </p>
+				
+					
+						</section><!--//docs-intro-->
+
+						
+				    </header>
+                        
+
+					
+			    </article>
+			    
+			    <article class="docs-article" id="section-2">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Installation</h1>
+						<section class="docs-intro">
+
+							<head>
+						</section><!--//docs-intro-->
+						
+				    </header>
+				     <section class="docs-section" id="item-2-1">
+						<h2 class="section-heading"></h2>
+						<p><strong>Pour installer Quest Quill, suivez ces étapes :</strong></p>
+						
+						<ol>
+							<li>Clonez le dépôt : <code>git clone git@github.com:kittog/quest-quill.git</code></li>
+							<li>Accédez au répertoire du projet : <code>cd quest-quill</code></li>
+							<li>Installez les dépendances : <code>pip install -r requirements.txt</code></li>
+						</ol>
+						<p><strong>Pour utiliser Quest Quill, suivez ces étapes :</strong></p>
+
+						<ol>
+							<li>Téléchargez le modèle disponible sur WeTransfer.</li>
+							<li>Accédez au dossier de l'API : <code>cd/api</code></li>
+							<li>Décompressez le fichier .rar téléchargé sur WeTransfer dans le dossier API.</li>
+							<li>Exécutez l'application : <code>python -m uvicorn main:app --reload</code></li>
+							<li>Suivez les invites pour spécifier les paramètres de la quête tels que la difficulté, le cadre et le type de quête.</li>
+							<li>Votre quête est générée ! Nous espérons qu'elle vous plaît !</li>
+						</ol>
+						<p><strong>Comment générer une quête une fois sur l'interface ?</strong> </p>
+						<p>Afin de générer la quête, il faut mentionner dans l'espace dédié:</p>
+					
+								<ul>
+									<li>La carte où se déroulera la quête pour pouvoir s'acclimater à divers environnements de combat.</li>
+									<li>La difficulté de la quête à choisir entre easy, medium, hard</li>
+									<li>Le ou les monstres à chasser.</li>
+								</ul>				    <style>
+									table {
+										width: 100%;
+										border-collapse: collapse;
+									}
+									th, td {
+										border: 1px solid black;
+										padding: 8px;
+										text-align: left;
+									}
+									th {
+										background-color: #f2f2f2;
+									}
+								</style>
+							</head>
+							<body>
+							
+							<h2>Bestiaire A COMPLETER</h2>
+							
+							<table> 
+								<tr>
+									<td>Jagras</td>
+									<td>Baggi</td>
+									<td>Arzuros</td>
+									<td>Great Baggi</td>
+								</tr>
+								<tr>
+									<td>Lagombi</td>
+									<td>Kulu-Ya-Ku</td>
+									<td>Tetranadon</td>
+									<td>Aknosom</td>
+								</tr>
+								<tr>
+									<td>Great Izuchi</td>
+									<td>Royal Ludroth</td>
+									<td>Barroth</td>
+									<td>Khezu</td>
+								</tr>
+								<tr>
+									<td>Bishaten</td>
+									<td>Somnacanth</td>
+									<td>Pukei-Pukei</td>
+									<td>Jyuratodus</td>
+								</tr>
+								<tr>
+									<td>Basarios</td>
+									<td>Rathian</td>
+									<td>Tobi-Kadachi</td>
+									<td>Volvidon</td>
+								</tr>
+								<tr>
+									<td>Mizutsune</td>
+									<td>Anjanath</td>
+									<td>Rathalos</td>
+									<td>Almudron</td>
+								</tr>
+								<tr>
+									<td>Goss Harag</td>
+									<td>Nargacuga</td>
+									<td>Zinogre</td>
+									<td>Magnamalo</td>
+								</tr>
+								<tr>
+									<td>Tigrex</td>
+									<td>Diablos</td>
+									<td>Rajang</td>
+									<td>Kushala Daora</td>
+								</tr>
+								<tr>
+									<td>Teostra</td>
+									<td>Chameleos</td>
+									<td>Wind Serpent Ibushi</td>
+									<td>Thunder Serpent Narwa</td>
+								</tr>
+								<tr>
+									<td>Narwa the Allmother</td>
+									<td>Crimson Glow Valstrax</td>
+									<td>Apex Arzuros</td>
+									<td>Apex Rathian</td>
+								</tr>
+								<tr>
+									<td>Apex Mizutsune</td>
+									<td>Apex Rathalos</td>
+									<td>Apex Diablos</td>
+									<td>Apex Zinogre</td>
+								</tr>
+							</table>
+							
+							</body>
+					
+							<h2>Map</h2>						</section><!--//section-->
+			
+			    </article><!--//docs-article-->
+			    
+			    
+			    <article class="docs-article" id="section-3">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">APIs</h1>
+					    <section class="docs-intro">
+<p>partie décrivant la conception de l'api</p>					</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-3-1">
+						<h2 class="section-heading">Données utilisées</h2>
+						<p style="text-align: justify;"> Les données qui ont été utilisées dans ce projet viennent d'un dépôt GitHub libre sous licence MIT: <a href="https://github.com/CrimsonNynja/monster-hunter-DB/tree/master">https://github.com/CrimsonNynja/monster-hunter-DB/tree/master</a></p>
+						<p style="text-align: justify;">Ce sont des données qui proviennent du jeu vidéo Monster Hunter, ces données sont des quêtes de ce même jeu vidéo : un jeu de combat entre chasseur et monstres hyper classes. La particularité des quêtes de Monster Hunter, c'est qu'elles sont simplement construites : un monstre à tuer, le contexte, l'objectif, la carte et la difficulté. Ce qui est parfait pour notre projet. En plus de ça, ce sont des quêtes qui ont un fond d'humour ce qui nous permet de rire malgré le destin du monde qui s'avère bien noir...</p>
+					</p>					</section><!--//section-->
+					
+					<section class="docs-section" id="item-3-2">
+						<h2 class="section-heading">Prétraitement</h2>
+			
+					<p>
+							<ul style="text-align: justify;">
+								<li>Les données du dépôt GitHub sont sous un format JSON avec plusieurs types de balises : target, objective, map, difficulty.</li>
+								<li>Nous avons un total de 848 quêtes pour l'entraînement</li>
+								<li>Extraction du contenu des balises qui nous interessent dans le projet : difficulty, objective, target, description, du corpus json à l'aide du script bla.py  </li>
+								<li>Suite à l'extraction notre corpus est construit sous un format txt de cette forme : </li>
+								<li>Exemple : Map : Desert | Difficulty : easy | Objective : Kill a Rathian | Description blabla....</li>
+								<li>Simplification du corpus en retirant x monstres du corpus. Leurs noms a été synthéthiser , exemple : Apex Nargacuga -> Nargacuga et des maps en retirant x maps</li>
+								<li> La simplification a été réalisé suite à des génération de quêtes de notre part. Il y avait trop de monstres pour peu de quêtes ce qui posait problème lors de la génération de l'objectif ou il se trompait de monstres</li>
+								<li>La suppression du format json a été réalisé pour nous simplifier la visibilité , le rendu de l'api et le code</li>
+							</ul>
+						
+					</p>					</section><!--//section-->
+					
+					<section class="docs-section" id="item-3-3">
+						<h2 class="section-heading">Fine Tunning GPT2</h2>
+						<ul style="text-align: justify;">
+							<li>L'entraînement a été réalisé avec le script train.py</li>
+							<li>Le modèle utilisé est GPT2 medium pour éviter les longs délais d'entraînement qu'impliquerait la version large.</li>
+							<li>Incorporation d'un corpus au format txt pour les données d'entraînement.</li>
+							<li>Apprentissage basé sur des blocs textuels de taille 75, permettant de couvrir intégralement une quête. (la moyenne de longueur d'une quête est d'environ 75 d'ou ce choix)</li>
+							<li>10 epochs et un batch size de 10 ont été choisis</li>
+							<li>La génération a été réalisé avec generate.py</li>
+							<li>Limitation à 75 max de n-grammes générés pour la génération de texte.</li>
+							<li>La température contrôle le niveau de créativité, avec des valeurs plus élevées générant des sorties plus variées mais moins cohérentes.</li>
+							<li>Top-K Sampling limite les choix de tokens aux K tokens les plus probables, favorisant la cohérence tout en permettant de la variété.</li>
+							<li>Top-P Sampling (Nucleus Sampling) limite la distribution cumulative des probabilités, permettant une génération plus dynamique parmi les tokens les plus probables.</li>
+							<li>No Repeat N-Grams empêche la répétition immédiate de séquences de mots pour éviter les motifs répétitifs indésirables.</li>
+							<li>Les paramètres de génération peuvent être ajustés pour obtenir les résultats souhaités.</li>
+							<li>Le prompt spécifié en back end est :  Map : {map} | Dificulty : {level} | Target : {monstres} </li>
+							<li>Ce prompt permet d'inciter le modèle à générer la suite de la quête -> Objectif , Description</li>
+							<li> Nous avons choisi les hyper paramètres pour la génération de manière empirique , au début nous avons générés avec un max lenght de 175 c'était beaucoup trop il était très incohérent dans les descriptions</li>
+							<li>top k et top p ont été utilisés pour que les quêtes générées soit à chaque fois différente , au départ avec certains mots clefs on avait toujours la même quête c'etait pas amusant</li>
+			
+						</ul>
+						
+					</p>					</section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    <article class="docs-article" id="section-4">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Intergrations</h1>
+					    <section class="docs-intro">
+							<ul style="text-align: justify;">
+								<li> Création d'une interface web avec FastAPI</li>
+								<li>Interface web avec 3 critères à inserer </li>
+								<img src="image/exemple.png">
+										</ul>						</section><!--//docs-intro-->
+				    </header>
+
+			    </article><!--//docs-article-->
+			    
+			    <article class="docs-article" id="section-5">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Résultats</h1>
+					    <section class="docs-intro">
+							<ul style="text-align: justify;">
+								<li> Résultat sous la forme d'une quête générée</li>
+								<li>Lorsque l'utilisateur a rentré ses critères une quête est générée voir ci-dessous</li>
+								<img src="image/exemple2.png">
+										</ul>						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-5-1">
+						<h2 class="section-heading">
+							Visualisation de certains outpus et notre avis</h2>
+						<ul style="text-align: justify;">
+							<li> A notre surprise le modèle génère des quetes avec peu de fautes de grammaire, de plus les quêtes générées parviennent à reproduire des traits d'humour dans les quêtes de référence.</li>
+							<li>Lorsque nous demandons des quetes avec plusieurs monstres le modèle parvient à changer l'objectif en précisant bien qu'il faut tuer plusieurs monstres</li>
+							<li>Plusieurs types d'erreurs sont cependant ressorties</li>
+							<li>Par moment lorsque nous demandons une map par exemple le desert , le modèle peut générer une quête qui se produit dans une arene en spécifiant que c'est dans une arène</li>
+							<li> Mais par moment il décrit bien le bon lieu ce n'est pas une faute réccurente</li>
+							<li>Le modèle lorsque nous mentionnons plusieurs monstres se focalisent souvent dans la description que sur un monstre</li>
+							<li>Lorsque nous sommes adeptes de ce jeu des incohérences se construisent mais cela est dû à nos choix de critères :</li>
+							<li> Demander un Diablos en difficulté facile , c'est pas courant dans le jeu vidéo, le diablos est un monstre compliqué. Les quêtes faciles du jeu sont de tuer par exemple 7 petits monstres, le modèle si on lui demander de generer une quete facile avec le Diablos , il va nous dire d'aller chasser 7 diablos en facile. C'est pas facile , c'est dur voir extrême ! BON COURAGE !</li>
+	
+									</ul>
+					
+						</p>					</section><!--//section-->
+					
+					<section class="docs-section" id="item-5-2">
+						<h2 class="section-heading">Evaluation Perceptive</h2>
+						<ul style="text-align: justify;">
+        
+							<li>Il n'y a actuellement pas de consensus quant à l'évaluation des modèles génératifs. Pour l'évaluation de notre modèle, nous avons réalisé une étude perceptive, et fait appel à la métrique GRUEN pour évaluer automatiquement les descriptions des quêtes générées.</li>
+							<li>Pour l'étude perceptive, nous avons créé un formulaire présentant aux participants 10 quêtes, 5 desquelles ont été générées par notre modèle. Les participants ne savent pas quelles quêtes sont générées, mais connaissent la distribution établie pour ce questionnaire. Pour chaque quête, les participants doivent répondre à la même série de question.  Nous interrogeons également les participants sur leur familiarité avec le jeu Monster Hunter.</li>
+							<li>L'étude perceptive nous permet d'évaluer le langage et la thématique de chaque quête. Les critères que nous voulions évaluer humainement étaient les suivants : la grammaire, la syntaxe, la cohérence, le langage utilisé pour la quête, et la quantité d'information présente dans la quête. Pour chaque quête, les participants ont un champ de texte libre dans lequel ils peuvent rajouter des observations supplémentaires. </li>
+							<li>Les différents critères sont évalués avec des échelles de score allant de 1 à 5 (likert 5 scale).</li>
+							<li> <b>Participants :</b> les formulaires furent par la suite partagés sur les réseaux sociaux, à nos ami.e.s, nos proches, et d'autres joueurs de Monster Hunter. Tous les participants n'étaient donc pas nécessairement familier avec le jeu ou l'univers de Monster Hunter. 
+							<li>La métrique <b>GRUEN</b> est un score allant de 0 à 1. Plus le score est élevé, meilleur le text généré est (en ne prenant en compte que le langage). L'intérêt de la métrique GRUEN est qu'elle évalue l'output du modèle seulement (contrairement à d'autres métriques, développées davantage pour la traduction automatique) selon quatre critères : la grammaticalité, la non-redondance, le "focus" (sujet), la structure et la cohérence. </li>
+							<li>À ces deux évaluations, nous ajoutons nos propres évaluations (sur les quêtes générées uniquement).</li>
+							
+							
+							<li>La génération de quête étant libre sans réelle référence (Nous pouvons par exemple générer une qûete avec un Diablos en difficulté facile et ça c'est impossible dans le jeu : le monstre est difficile à abattre !) Mais, justement il nous a semblé intéressant de voir comment le modèle construisait ses quêtes et en inventait à l'aide du corpus d'entraînement.</li>
+							
+							<li>Notre étude perceptive ne rassemble pour le moment pas beaucoup de participants (à l'heure où j'écris : 12), mais nous remarquons tout de même une tendance intéressante : le critère sur lequel nous observons le plus de variabilité est la cohérence. Les participants étant familiers avec le jeu sont très souvent ceux qui utilisent les champs de texte libres pour faire part de leurs commentaires. Souvent, c'est le niveau de difficulté qui est remis en cause. Exemples : <i>"Lavasioth is not as dangerous as elder dragons, and three elder dragons make a hard quest, not a medium quest."</i>, <i>"Deviljho and "easy" in the same quest ?"</i></li>
+							<li>Les participants relèvent également parfois le manque d'information, ou bien le manque de cohérence entre la map donnée (<i>"What equipment are we talking about?"</i>), et la description qui en nomme une autre (<i>"The description suits an arena quest, not a common quest in the jungle, and Royal Ludroth is not that hard."</i>)</li>
+												</section><!--//section-->
+					
+					<section class="docs-section" id="item-5-3">
+							<h2 class="section-heading">Evaluation GRUEN</h2>
+							<strong><b>Scores :</b></strong>
+							<li>'Yo Ace Ready for some awesome Arena action Prove your mettle using the equipment provided here', <b>GRUEN-score = 0.7959898336094267</b></li>
+							<li>"It has come to the Board's attention that one of our members may or may not have been seen in the Ancient Forest We are taking this matter seriously and will be contacting our other members should we learn of their location In the meantime seek out and destroy the beast", <b>GRUEN-score = 0.7180524031304696</b></li>
+							<li>"I just spotted 7 Diablos I thought they were just goofin' around What could they possibly be doin' up in the Jungle I'm goin' home now Hunter please find out for me", <b>GRUEN-score = 0.6151282347386587</b></li>
+							<li>"I've seen my share of Pink Rathian and I still can't wrap my head around how they pull this off They go from pink to purple in a matter of seconds and then there's that rumbling sound and boom I drop all my ingredients on the way back to camp", <b>GRUEN-score = 0.613164735564349</b></li>
+							<li>"The Commander of this expedition has been spotted Subspecies like these are highly valuable to the Commission's research efforts Get going hunter", <b>GRUEN-score = 0.4434186723391666</b></li>
+					   
+							   </ul>					</section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    
+		        <article class="docs-article" id="section-6">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Web</h1>
+					    <section class="docs-intro">
+						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-6-1">
+						<h2 class="section-heading">Section Item 6.1</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-6-2">
+						<h2 class="section-heading">Section Item 6.2</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-6-3">
+							<h2 class="section-heading">Section Item 6.3</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    
+			    <article class="docs-article" id="section-7">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Contact</h1>
+					    <section class="docs-intro">
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-7-1">
+						<div style="text-align: center; display: flex; justify-content: center;">
+
+							<div style="margin: 10px;">
+								<img src="image/Icon2.jpg" alt="Image 2" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+								<div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
+									<p>Natacha Miniconi</p>
+								</div>
+							</div>
+							<div style="margin: 10px;">
+								<img src="image3.jpg" alt="Image 3" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
+								<div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
+									<p>Léna Gaubert</p>
+								</div>
+							</div>
+							<div style="margin: 10px;">
+								<img src="image3.jpg" alt="Image 3" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
+								<div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
+									<p>Qinliang QI</p>
+								</div>
+							</div>
+							<div style="margin: 10px;">
+								<img src="image/Icon1.jpg" alt="Image 1" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+								<div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
+									<p>Perl</p>
+								</div>
+							</div>					</section><!--//section-->
+
+			    </article><!--//docs-article-->
+			    
+			    
+			    <article class="docs-article" id="section-8">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Resources</h1>
+					    <section class="docs-intro">
+<p>Monster hunter, Teppen, source métrique léna</p>						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-8-1">
+						<h2 class="section-heading">Section Item 8.1</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-8-2">
+						<h2 class="section-heading">Section Item 8.2</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-8-3">
+							<h2 class="section-heading">Section Item 8.3</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+
+			    </article><!--//docs-article-->
+
+			    <footer class="footer">
+				    <div class="container text-center py-5">
+				        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+			            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+				        <ul class="social-list list-unstyled pt-4 mb-0">
+						    <li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li> 
+
+				        </ul><!--//social-list-->
+				    </div>
+			    </footer>
+		    </div> 
+	    </div>
+    </div><!--//docs-wrapper-->
+   
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+</body>
+</html> 
+
