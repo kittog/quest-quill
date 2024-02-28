@@ -3,7 +3,9 @@
 Quest Quill est un projet développé pour le cours "Réseaux de Neurones" dispensé par Loïc Grobol à l'Université Paris Nanterre. Il vise à générer des quêtes de jeu de rôle (JDR) en utilisant des réseaux neuronaux.
 Suivez ce lien pour avoir plus ample connaissance de la manière dont a été créer le modèle : https://kittog.github.io/quest-quill/
 
-![](image/4loic.gif)
+<p align="center">
+  <img src="image/4loic.gif" alt="animated" />
+</p>
 
 
 ## Table des matières
