@@ -442,7 +442,7 @@
 							<li>Préparation des données intègre un ensemble de textes au format txt pour les données d'entraînement. Le processus implique l'utilisation de blocs textuels de taille 128, couvrant entièrement chaque quête. Le formatage des données en vue de l'entraînement du modèle inclut une probabilité de masquage de 0.15.</li>
 							<li>Nous avons effectué 3 époques avec une taille de lot de 4, comparable à GPT-2, et avons continué à partir du même nombre d'époques.</li>
 							<li>Entraînement et Sauvegarde du modèle.</li>
-							<li>Un prompt de quête est construit en fonction des entrées utilisateur :  Map : {map} | Dificulty : {level} | Target.</li>
+							<li>Un prompt de quête est construit en fonction des entrées utilisateur :  Map : {map} | Dificulty : {level} | Target : {monstres}</li>
 							<li>Le modèle génère ensuite une séquence de texte basée sur ce prompt.</li>
 							<li>La quête générée est décodée à l'aide du tokenizer.</li>
 							<li>Les résultats étant insatisfaisants, l'utilisation de BERT pour la génération de quêtes dans ce contexte n'est pas recommandée.</li>
