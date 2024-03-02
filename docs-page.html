@@ -293,7 +293,7 @@
 					</p>					</section><!--//section-->
 
 					<section class="docs-section" id="item-3-3">
-						<h2 class="section-heading">Fine Tunning GPT2</h2>
+						<h2 class="section-heading">Fine Tuning GPT2</h2>
 						<ul style="text-align: justify;">
 							<li>L'entraînement a été réalisé avec le script train.py</li>
 							<li>Le modèle utilisé est GPT2 medium pour éviter les longs délais d'entraînement qu'impliquerait la version large.</li>
@@ -435,27 +435,19 @@
 
 		        <article class="docs-article" id="section-6">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">Web</h1>
-					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
-						</section><!--//docs-intro-->
-				    </header>
-				     <section class="docs-section" id="item-6-1">
-						<h2 class="section-heading">Section Item 6.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-6-2">
-						<h2 class="section-heading">Section Item 6.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-6-3">
-							<h2 class="section-heading">Section Item 6.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-			    </article><!--//docs-article-->
-
+					    <h1 class="docs-heading">Essai Fine Tuning BERT</h1>
+					    	<ul style="text-align: justify;">
+							<li>L'entraînement a été réalisé à l'aide du script bert.py.</li>
+							<li>Le modèle utilisé est BERT, choisi afin de comparer ses performances avec celles du modèle GPT-2.</li>
+							<li>Préparation des données intègre un ensemble de textes au format txt pour les données d'entraînement. Le processus implique l'utilisation de blocs textuels de taille 128, couvrant entièrement chaque quête. Le formatage des données en vue de l'entraînement du modèle inclut une probabilité de masquage de 0.15.</li>
+							<li>Nous avons effectué 3 époques avec une taille de lot de 4, comparable à GPT-2, et avons continué à partir du même nombre d'époques.</li>
+							<li>Entraînement et Sauvegarde du modèle.</li>
+							<li>Un prompt de quête est construit en fonction des entrées utilisateur :  Map : {map} | Dificulty : {level} | Target.</li>
+							<li>Le modèle génère ensuite une séquence de texte basée sur ce prompt.</li>
+							<li>La quête générée est décodée à l'aide du tokenizer.</li>
+							<li>Les résultats étant insatisfaisants, l'utilisation de BERT pour la génération de quêtes dans ce contexte n'est pas recommandée.</li>
+							
+						</ul>
 
 			    <article class="docs-article" id="section-7">
 				    <header class="docs-header">
