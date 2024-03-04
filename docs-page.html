@@ -270,9 +270,9 @@
 				     <section class="docs-section" id="item-3-1">
 						<h2 class="section-heading">Données utilisées</h2>
 						<p style="text-align: justify;"> Les données qui ont été utilisées dans ce projet viennent d'un dépôt GitHub libre sous licence MIT : <a href="https://github.com/CrimsonNynja/monster-hunter-DB/tree/master">monster-hunter-DB</a></p>
-						<p style="text-align: justify;">Ces données sont des quêtes qui proviennent du jeu vidéo Monster Hunter : un jeu de combat entre chasseurs et monstres (hyper classes et super stylés). La particularité des quêtes de Monster Hunter,
-             est qu'elles sont une structure simple : un monstre à tuer, un contexte, un objectif, une carte et une difficulté. Ce qui est parfait pour notre projet.
-             En plus de ça, ce sont des quêtes qui ont un fond d'humour ce qui nous permet de rire malgré le destin du monde qui s'avère bien noir...</p>
+						<p style="text-align: justify;">Ces données sont des <b>quêtes</b> qui proviennent du jeu vidéo <em>Monster Hunter</em> : un jeu de combat entre chasseurs et monstres (hyper classes et super stylés). La particularité des quêtes de Monster Hunter,
+             est qu'elles sont une structure simple : un <b>monstre à tuer</b>, un <b>contexte</b>, un <b>objectif</b>, une <b>carte</b> et une <b>difficulté</b>. Ce qui est parfait pour notre projet.
+             En plus de ça, ce sont des quêtes qui ont un <em>fond d'humour</em> ce qui nous permet de rire malgré le destin du monde qui s'avère bien noir...</p>
 					</p>					</section><!--//section-->
 
 					<section class="docs-section" id="item-3-2">
@@ -280,14 +280,15 @@
 
 					<p>
 							<ul style="text-align: justify;">
-								<li>Les données du dépôt GitHub sont sous un format JSON avec plusieurs types de balises : target, objective, map, difficulty.</li>
-								<li>Nous avons un total de 848 quêtes pour l'entraînement</li>
-								<li>Extraction du contenu des balises qui nous interessent dans le projet : difficulty, objective, target, description, du corpus json à l'aide du script bla.py  </li>
-								<li>Suite à l'extraction notre corpus est construit sous un format txt de cette forme : </li>
-								<li>Exemple : Map : Desert | Difficulty : easy | Objective : Kill a Rathian | Description blabla....</li>
-								<li>Simplification du corpus en retirant x monstres du corpus. Leurs noms a été synthéthiser , exemple : Apex Nargacuga -> Nargacuga et des maps en retirant x maps</li>
-								<li> La simplification a été réalisé suite à des génération de quêtes de notre part. Il y avait trop de monstres pour peu de quêtes ce qui posait problème lors de la génération de l'objectif ou il se trompait de monstres</li>
-								<li>La suppression du format json a été réalisé pour nous simplifier la visibilité , le rendu de l'api et le code</li>
+								<li>Les données du dépôt GitHub sont sous un format JSON avec plusieurs types de balises : <code>target</code>, <code>objective</code>, <code>map</code>, <code>difficulty</code>.</li>
+								<li>Le corpus d'entraînement est constitué d'un total de <b>848 quêtes</b>.</li>
+								<li>À partir de ce corpus, extraction du contenu des balises qui nous intéressent : <code>difficulty</code>, <code>objective</code>, <code>target</code>, <code>description</code>, à l'aide du script <code>bla.py</code>.</li>
+								<li>Pour simplifier la visibilité, le rendu de l'API, ainsi que le code, on met le corpus sous format <code>.txt</code> en formattant les quêtes. <b>Exemple : </b> <i>Map : Desert | Difficulty : easy | Objective : Kill a Rathian | Description blabla....</i></li>
+                <li>Après quelques essais de génération de quêtes, nous nous sommes rendues compte qu'il y avait <em>trop de monstres</em> à apprendre par rapport au <em>nombre de quêtes</em> dont nous disposions. Nous rencontrions donc
+                des soucis dans la génération des objectifs et des descriptions des quêtes.</li>
+                <li>Simplification du corpus en retirant <b>12 monstres</b> ainsi que <b>7 maps</b> du corpus. Pour certains monstres, leurs noms ont été synthéthisés.<b> Exemple :</b> <i>Apex Nargacuga → Nargacuga.</i>
+                <li>Pour la simplification, on procède avec Notedpad, et on remplace les noms des monstres/maps <b>peu fréquents</b>
+              (présents dans moins de 5 quêtes) par des monstres/maps <b>plus fréquents</b>.</li>
 							</ul>
 
 					</p>					</section><!--//section-->
@@ -437,7 +438,7 @@
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Essai Fine Tuning BERT</h1>
 					    	<ul style="text-align: justify;">
-							<li>L'entraînement a été réalisé à l'aide du script bert.py.</li>
+							<li>L'entraînement a été réalisé à l'aide du script <code>bert.py</code>.</li>
 							<li>Le modèle utilisé est BERT, choisi afin de comparer ses performances avec celles du modèle GPT-2.</li>
 							<li>Préparation des données intègre un ensemble de textes au format txt pour les données d'entraînement. Le processus implique l'utilisation de blocs textuels de taille 128, couvrant entièrement chaque quête. Le formatage des données en vue de l'entraînement du modèle inclut une probabilité de masquage de 0.15.</li>
 							<li>Nous avons effectué 3 époques avec une taille de lot de 4, comparable à GPT-2, et avons continué à partir du même nombre d'époques.</li>
@@ -446,7 +447,7 @@
 							<li>Le modèle génère ensuite une séquence de texte basée sur ce prompt.</li>
 							<li>La quête générée est décodée à l'aide du tokenizer.</li>
 							<li>Les résultats étant insatisfaisants, l'utilisation de BERT pour la génération de quêtes dans ce contexte n'est pas recommandée.</li>
-							
+
 						</ul>
 
 			    <article class="docs-article" id="section-7">
@@ -500,20 +501,7 @@
           <cite>Human evaluation of automatically generated text: Current trends and best practice guidelines</cite></li>
         </ol>
             </header>
-				     <section class="docs-section" id="item-8-1">
-						<h2 class="section-heading">Section Item 8.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
 
-					<section class="docs-section" id="item-8-2">
-						<h2 class="section-heading">Section Item 8.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-8-3">
-							<h2 class="section-heading">Section Item 8.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
 			    </article><!--//docs-article-->
 
 			    </article><!--//docs-article-->
