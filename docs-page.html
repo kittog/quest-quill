@@ -90,20 +90,10 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2-1">Évaluation perceptive</a></li>
             <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2-2">Évaluation avec la métrique GRUEN</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2"><i class="fas fa-laptop-code"></i></span>Essai Modèle BERT</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Section Item 6.1</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">Section Item 6.2</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-3">Section Item 6.3</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-7"><span class="theme-icon-holder me-2"><i class="fas fa-tablet-alt"></i></span>Contact</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">L'équipe</a></li>
 
-				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-8"><span class="theme-icon-holder me-2"><i class="fas fa-book-reader"></i></span>Resources</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">Section Item 8.1</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2">Section Item 8.2</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3">Section Item 8.3</a></li>
-				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-9"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>FAQs</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1">Section Item 9.1</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-2">Section Item 9.2</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-3">Section Item 9.3</a></li>
+
 			    </ul>
 
 		    </nav><!--//docs-nav-->
@@ -446,17 +436,21 @@
 
 		        <article class="docs-article" id="section-6">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">Essai Fine Tuning BERT</h1>
+					    <h1 class="docs-heading">Essai avec BERT</h1>
 					    	<ul style="text-align: justify;">
-							<li>L'entraînement a été réalisé à l'aide du script <code>bert.py</code>.</li>
-							<li>Le modèle utilisé est BERT, choisi afin de comparer ses performances avec celles du modèle GPT-2.</li>
-							<li>Préparation des données intègre un ensemble de textes au format txt pour les données d'entraînement. Le processus implique l'utilisation de blocs textuels de taille 128, couvrant entièrement chaque quête. Le formatage des données en vue de l'entraînement du modèle inclut une probabilité de masquage de 0.15.</li>
-							<li>Nous avons effectué 3 époques avec une taille de lot de 4, comparable à GPT-2, et avons continué à partir du même nombre d'époques.</li>
-							<li>Entraînement et Sauvegarde du modèle.</li>
-							<li>Un prompt de quête est construit en fonction des entrées utilisateur :  Map : {map} | Dificulty : {level} | Target : {monstres}.</li>
-							<li>Le modèle génère ensuite une séquence de texte basée sur ce prompt.</li>
-							<li>La quête générée est décodée à l'aide du tokenizer.</li>
-							<li>Les résultats étant insatisfaisants, l'utilisation de BERT pour la génération de quêtes dans ce contexte n'est pas recommandée.</li>
+              <li>Le modèle utilisé est <b>BERT</b> — nous cherchions à comparer les performances de ce dernier à <b>GPT-2</b>.</li>
+							<li>L'entraînement du modèle a été réalisé à l'aide du script <code>bert.py</code>. Nous avons passé au modèle le même corpus d'entraînement (format <code>.txt</code>) qu'au modèle GPT-2.
+              L'entraînement s'est déroulé sur <b>3 epoch</b> avec des batches de taille 4.</li>
+							<li>À l'instar du modèle GPT-2, le prompt de quête est construit <b>en fonction des entrées de l'utilisateur</b> :  <code>Map : {map} | Dificulty : {level} | Target : {monstres}</code>.
+              Suite à ce prompt, le modèle génère l'<b>objectif</b> et la <b>description</b> de la quête correspondante. La quête générée est finalement
+            décodée à l'aide du <em>tokenizer</em>.</li>
+              <li>Les résultats obtenus étaient insatisfaisants : le modèle finetuné ne parvenait tout simplement <i>pas à générer des tokens corrects</i>.
+                Il était donc <b>impossible</b> d'obtenir, pour un prompt donné, un objectif et une description <i>lisibles</i>.
+                Cela est notamment lié à l'architecture de BERT, qui ne dispose pas d'un décodeur, mais <i>seulement</i> d'un <b>encodeur</b> (<i>encoder-only</i>) [Wang & Cho, 2019], ce qui rend difficile leur utilisation pour générer du texte, malgré leur <b>nature bidirectionnelle</b>.
+                Cela fait de BERT une exception parmis les LLMs. [Patel et. al, 2023]</li>
+                <li><i>Attention</i>, son utilisation pour la génération de texte n'est <i>pas impossible</i> !
+                Mais, elle demande plus de travail et de recherche pour guider le modèle comme nous le souhaitons. Dans tous les cas,
+                GPT-2 semblait plus adapté pour notre projet.</li>
 
 						</ul>
 
