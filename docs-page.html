@@ -296,22 +296,26 @@
 					<section class="docs-section" id="item-3-3">
 						<h2 class="section-heading">Fine Tuning GPT2</h2>
 						<ul style="text-align: justify;">
-							<li>L'entraînement a été réalisé avec le script train.py</li>
-							<li>Le modèle utilisé est GPT2 medium pour éviter les longs délais d'entraînement qu'impliquerait la version large.</li>
-							<li>Incorporation d'un corpus au format txt pour les données d'entraînement.</li>
-							<li>Apprentissage basé sur des blocs textuels de taille 75, permettant de couvrir intégralement une quête. (la moyenne de longueur d'une quête est d'environ 75 d'ou ce choix)</li>
-							<li>10 epochs et un batch size de 10 ont été choisis</li>
-							<li>La génération a été réalisé avec generate.py</li>
-							<li>Limitation à 75 max de n-grammes générés pour la génération de texte.</li>
-							<li>La température contrôle le niveau de créativité, avec des valeurs plus élevées générant des sorties plus variées mais moins cohérentes.</li>
-							<li>Top-K Sampling limite les choix de tokens aux K tokens les plus probables, favorisant la cohérence tout en permettant de la variété.</li>
-							<li>Top-P Sampling (Nucleus Sampling) limite la distribution cumulative des probabilités, permettant une génération plus dynamique parmi les tokens les plus probables.</li>
-							<li>No Repeat N-Grams empêche la répétition immédiate de séquences de mots pour éviter les motifs répétitifs indésirables.</li>
+							<li>L'entraînement a été réalisé avec le script <code>train.py</code></li>
+							<li>Le modèle utilisé est <b>GPT2 medium</b> pour éviter les longs délais d'entraînement qu'impliquerait la version <b>large</b>.</li>
+							<li>Notre corpus au format <code>.txt</code> est passé en <b>input</b>.</li>
+              <br/>
+              <b>Choix des paramètres pour l'entraînement :</b>
+              <li>Apprentissage basé sur des blocs textuels de <em>taille 75</em>, permettant de couvrir intégralement une quête. (ce choix se justifie par la longueur moyenne d'une quête qui est de 75.)</li>
+							<li>L'entraînement se déroule sur <b>10 epochs</b> avec un <b>batch size</b> de <b>10</b>.</li>
+              <br/>
+              <b>Choix des paramètres pour la génération :</b>
+              <li>La génération des quêtes se fait à l'aide du script <code>generate.py</code></li>
+							<li>Limitation à <b>75 max de n-grammes générés</b> pour la génération de texte.</li>
+							<li>La température contrôle le niveau de créativité. Le choix de valeurs plus élevées génère des sorties plus variées mais moins cohérentes.</li>
+							<li><b>Top-K Sampling</b> limite les choix de tokens aux <em>K tokens les plus probables</em>, favorisant la <em>cohérence</em> tout en permettant de la <em>variété</em>.</li>
+							<li><b>Top-P Sampling</b> (<i>Nucleus Sampling</i>) limite la <em>distribution cumulative des probabilités</em>, permettant une génération plus <em>dynamique</em> parmi les tokens les plus probables.</li>
+							<li><b>No Repeat N-Grams</b> empêche la <em>répétition immédiate</em> de séquences de mots pour éviter les <em>motifs répétitifs indésirables</em>.</li>
 							<li>Les paramètres de génération peuvent être ajustés pour obtenir les résultats souhaités.</li>
-							<li>Le prompt spécifié en back end est :  Map : {map} | Dificulty : {level} | Target : {monstres} </li>
-							<li>Ce prompt permet d'inciter le modèle à générer la suite de la quête -> Objectif , Description</li>
-							<li> Nous avons choisi les hyper paramètres pour la génération de manière empirique , au début nous avons générés avec un max lenght de 175 c'était beaucoup trop il était très incohérent dans les descriptions</li>
-							<li>top k et top p ont été utilisés pour que les quêtes générées soit à chaque fois différente , au départ avec certains mots clefs on avait toujours la même quête c'etait pas amusant</li>
+							<li>Le prompt spécifié en <em>back end</em> est :  <code>Map : {map} | Dificulty : {level} | Target : {monstres}</code> </li>
+							<li>Ce prompt permet d'inciter le modèle à générer la suite de la quête → <code>Objectif</code> , <code>Description</code>.</li>
+							<li> Nous avons choisi les hyper paramètres pour la génération de <em>manière empirique</em> : au début nous générions des quêtes avec une <b>max length de 175</b>, ce qui était beaucoup trop. Le générateur était alors très incohérent dans les descriptions.</li>
+							<li><b>top k</b> et <b>top p</b> ont été utilisés pour que les quêtes générées soient, pour chaque génération utilisant les mêmes prompts, différentes. Au départ, nous obtenions systématiquement la même quête pour certains mots clefs de départ, ce qui n'était pas du tout amusant.</li>
 
 						</ul>
 
