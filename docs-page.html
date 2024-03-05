@@ -89,7 +89,7 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Évaluation de Quest Quill</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2-1">Évaluation perceptive</a></li>
             <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2-2">Évaluation avec la métrique GRUEN</a></li>
-				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2"><i class="fas fa-laptop-code"></i></span>Essai Modèle BERT</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2"><i class="fas fa-laptop-code"></i></span>Essai avec BERT</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-7"><span class="theme-icon-holder me-2"><i class="fas fa-tablet-alt"></i></span>Contact</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">L'équipe</a></li>
 
@@ -110,6 +110,14 @@
 							<p>Le monde étant en grand danger suite aux multiples attaques de monstres, il nous a semblé urgent de nous entraîner à les combattre à l'aide d'un générateur de quêtes automatiques. Les objectifs de cet entraînement sont,
                 dans un premier temps, générer des quêtes avec des conditions telles que : <i>map</i>, <i>difficulté</i>, <i>monstre</i>. Dans un second temps, les quêtes devront être cohérente et présenter quelques touches d'humour.
                 (À quoi bon autant s'entraîner si on ne peut pas un petit peu s'amuser...)</p>
+                <p style="text-align: justify;"><strong>Notre plan d'action</strong></p>
+                <p>Pour sauver le monde, il faut être <i>organisé</i>. Ainsi, le <b>pré-traitement</b> fut d'abord réalisé en groupe : il fallait trouver l'input idéal pour notre modèle de génération. L'implémentation du code pour l'<b>entraînement de notre modèle GPT-2</b> fut réalisé par Natacha : c'est également Natacha
+                qui gérait l'entraînement du modèle (il faut une sacrée machine pour faire ça, et <i>heureusement</i> pour nous, Natacha est équipée).</p>
+                <p> Nous discutions beaucoup
+              au fil des essais de génération et entraînements afin de trouver comment peaufiner le modèle et obtenir les meilleures quêtes possibles. De son côté, dans l'optique d'obtenir des résultats comparables à ceux de GPT-2, Qinliang a réalisé des <b>essais avec le modèle BERT</b>,
+            qu'elle a pu finetuné. L'<b>API</b> de Quest Quill fut conçue par Natacha. Finalement, après avoir évalué nos quêtes générées entre nous, Léna a mené une <b>étude perceptive</b> à l'aide de 26 participants,
+          ainsi qu'une métrique (GRUEN) pour compléter <b>l'évaluation du modèle</b>.</p>
+
 
 
 						</section><!--//docs-intro-->
@@ -250,6 +258,13 @@
 
 			    </article><!--//docs-article-->
 
+          <article class="docs-article" id="section-3">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">APIs</h1>
+					    <section class="docs-intro">
+                  <p>Conception de l'API</p>
+
+            </section>
 
 			    <article class="docs-article" id="section-3">
 				    <header class="docs-header">
