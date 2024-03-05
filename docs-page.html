@@ -104,7 +104,7 @@
                 <p style="text-align: justify;"><strong>Notre plan d'action</strong></p>
                 <p>Pour sauver le monde, il faut être <i>organisé</i>. Ainsi, le <b>pré-traitement</b> fut d'abord réalisé en groupe : il fallait trouver l'input idéal pour notre modèle de génération. L'implémentation du code pour l'<b>entraînement de notre modèle GPT-2</b> fut réalisé par Natacha : c'est également Natacha
                 qui gérait l'entraînement du modèle (il faut une sacrée machine pour faire ça, et <i>heureusement</i> pour nous, Natacha est équipée). La génération a été reéalisée sur la même machine mais en appel Zoom afin qu'on puisse toutes voir les problèmes de la génération. Un des problème a été la mauvaise génération de la section objective de la quête. Pour régler ça Léna a approfonfis le pré-traitement en retirant quelques monstres et map. Le problème est réglé =D </p>
-                <p> Nous discutions beaucoup
+                <p> Nous avons continué de discuter
               au fil des essais de génération et entraînements afin de trouver comment peaufiner le modèle et obtenir les meilleures quêtes possibles. De son côté, dans l'optique d'obtenir des résultats comparables à ceux de GPT-2, Qinliang a réalisé des <b>essais avec le modèle BERT</b>,
             qu'elle a pu finetuné. L'<b>API</b> de Quest Quill fut conçue par Natacha. Finalement, après avoir évalué nos quêtes générées entre nous, Léna a mené une <b>étude perceptive</b> à l'aide de 26 participants,
           ainsi qu'une métrique (GRUEN) pour compléter <b>l'évaluation du modèle. Le site quant à lui est une template que Qi et Léna ont revu afin de l'adapter à notre projet</b>.</p>
@@ -277,9 +277,9 @@
 
 			    <article class="docs-article" id="section-3">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">APIs</h1>
+					    <h1 class="docs-heading">Modèle GPT2 FineTuning</h1>
 					    <section class="docs-intro">
-<p>Conception de l'API</p>					</section><!--//docs-intro-->
+				</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-3-1">
 						<h2 class="section-heading">Données utilisées</h2>
@@ -341,13 +341,15 @@
 						<h2 class="section-heading">Intégration avec FastAPI</h2>
 						<h3>Aspect API</h3>
 						<img src="image/interf.png">
+						<center><figcaption><b>Image 1 — Aperçu de l'API au démarrage.</b></figcaption></center>
 						<img src="image/interf2.png">
+						<center><figcaption><b>Image 2 — Aperçu de l'API lors de la génération.</b></figcaption></center>
 						<ul style="text-align: justify;">
 								<li>L'API de Quest Quill fut développée à l'aide du module Python <code>FastAPI</code>.</li>
 								<li>L'interface Web développée propose à l'utilisateur d'indiquer les trois critères nécessaire pour la génération de la quête souhaitée. (voir ci-dessous)</li>
                 <figure>
                 <img src="image/exemple.png">
-                <center><figcaption><b>Image 1 — Aperçu de l'interface Web de Quest Quill.</b></figcaption></center>
+                <center><figcaption><b>Image 3 — Aperçu des champs à compléter pour avoir notre quête.</b></figcaption></center>
               </figure>
 										</ul>						</section><!--//docs-intro-->
 
@@ -365,7 +367,7 @@
 								<li>Ci-dessous, un aperçu de l'interface de Quest Quill après la génération d'une quête.</li>
                 <figure>
                 <img src="image/exemple2.png">
-                <center><figcaption><b>Image 2 — Exemple de quête générée avec Quest Quill.</b></figcaption></center>
+                <center><figcaption><b>Image 4 — Exemple de quête générée avec Quest Quill.</b></figcaption></center>
               </figure>
 										</ul>						</section><!--//docs-intro-->
 				    </header>
