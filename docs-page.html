@@ -103,11 +103,11 @@
                 (À quoi bon autant s'entraîner si on ne peut pas un petit peu s'amuser...)</p>
                 <p style="text-align: justify;"><strong>Notre plan d'action</strong></p>
                 <p>Pour sauver le monde, il faut être <i>organisé</i>. Ainsi, le <b>pré-traitement</b> fut d'abord réalisé en groupe : il fallait trouver l'input idéal pour notre modèle de génération. L'implémentation du code pour l'<b>entraînement de notre modèle GPT-2</b> fut réalisé par Natacha : c'est également Natacha
-                qui gérait l'entraînement du modèle (il faut une sacrée machine pour faire ça, et <i>heureusement</i> pour nous, Natacha est équipée).</p>
+                qui gérait l'entraînement du modèle (il faut une sacrée machine pour faire ça, et <i>heureusement</i> pour nous, Natacha est équipée). La génération a été reéalisée sur la même machine mais en appel Zoom afin qu'on puisse toutes voir les problèmes de la génération. Un des problème a été la mauvaise génération de la section objective de la quête. Pour régler ça Léna a approfonfis le pré-traitement en retirant quelques monstres et map. Le problème est réglé =D </p>
                 <p> Nous discutions beaucoup
               au fil des essais de génération et entraînements afin de trouver comment peaufiner le modèle et obtenir les meilleures quêtes possibles. De son côté, dans l'optique d'obtenir des résultats comparables à ceux de GPT-2, Qinliang a réalisé des <b>essais avec le modèle BERT</b>,
             qu'elle a pu finetuné. L'<b>API</b> de Quest Quill fut conçue par Natacha. Finalement, après avoir évalué nos quêtes générées entre nous, Léna a mené une <b>étude perceptive</b> à l'aide de 26 participants,
-          ainsi qu'une métrique (GRUEN) pour compléter <b>l'évaluation du modèle</b>.</p>
+          ainsi qu'une métrique (GRUEN) pour compléter <b>l'évaluation du modèle. Le site quant à lui est une template que Qi et Léna ont revu afin de l'adapter à notre projet</b>.</p>
 
 
 
@@ -303,6 +303,7 @@
                 <li>Simplification du corpus en retirant <b>12 monstres</b> ainsi que <b>7 maps</b> du corpus. Pour certains monstres, leurs noms ont été synthéthisés.<b> Exemple :</b> <i>Apex Nargacuga → Nargacuga.</i>
                 <li>Pour la simplification, on procède avec Notedpad, et on remplace les noms des monstres/maps <b>peu fréquents</b>
               (présents dans moins de 5 quêtes) par des monstres/maps <b>plus fréquents</b>.</li>
+			  <li>Les balises difficultées ont également étaient somplifié. Dans le corpus c'est la notation du jeu tel que : MR1 , HR6. Nous avons conscience que le modèle doit pouvoir être utilisé par plusieurs personnes connaissnat pas ce jeu, nous avons donc converti ces niveaux en des termes plus générique tel que : easy , medium, hard</li>
 							</ul>
 
 					</p>					</section><!--//section-->
@@ -338,6 +339,9 @@
 
           <section class="docs-section" id="item-3-4">
 						<h2 class="section-heading">Intégration avec FastAPI</h2>
+						<h3>Aspect API</h3>
+						<img src="image/interf.png">
+						<img src="image/interf2.png">
 						<ul style="text-align: justify;">
 								<li>L'API de Quest Quill fut développée à l'aide du module Python <code>FastAPI</code>.</li>
 								<li>L'interface Web développée propose à l'utilisateur d'indiquer les trois critères nécessaire pour la génération de la quête souhaitée. (voir ci-dessous)</li>
@@ -507,13 +511,13 @@
 								</div>
 							</div>
 							<div style="margin: 10px;">
-								<img src="image/Icon3.jpg" alt="Image 3" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
+								<img src="image/Icon3.jpg" alt="Image 3" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
 								<div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
 									<p>Léna Gaubert</p>
 								</div>
 							</div>
 							<div style="margin: 10px;">
-								<img src="image/img4.jpg" alt="Image 3" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
+								<img src="image/img4.jpg" alt="Image 3" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
 								<div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
 									<p>Qinliang QI</p>
 								</div>
@@ -521,7 +525,7 @@
 							<div style="margin: 10px;">
 								<img src="image/Icon1.jpg" alt="Image 1" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
 								<div style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
-									<p>Perl</p>
+									<p>Mascotte Perl, Pro en NLP</p>
 								</div>
 							</div>					</section><!--//section-->
 
