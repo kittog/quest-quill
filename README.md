@@ -10,12 +10,13 @@ Suivez ce lien pour avoir plus ample connaissance de la manière dont a été cr
 
 ## Table des matières
 
-- [Introduction](#introduction)
-- [Fonctionnalités](#fonctionnalités)
-- [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Contributions](#contributions)
-- [Licence](#licence)
+- [Quest Quill](#quest-quill)
+  - [Table des matières](#table-des-matières)
+  - [Introduction](#introduction)
+  - [Fonctionnalités](#fonctionnalités)
+  - [Installation](#installation)
+  - [Utilisation](#utilisation)
+
 
 ## Introduction
 
@@ -43,4 +44,3 @@ Pour utiliser Quest Quill, suivez ces étapes :
 4. Exécutez l'application : ``` python -m uvicorn main:app --reload```
 5. Suivez les invites pour spécifier les paramètres de la quête tels que la difficulté, le cadre et le type de quête.
 6. Votre quête est générée :) nous esperons qu'elle vous plaît !
-
