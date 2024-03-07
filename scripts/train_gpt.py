@@ -1,10 +1,13 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, TextDataset, DataCollatorForLanguageModeling, Trainer, TrainingArguments
 import matplotlib.pyplot as plt
 
+# Importation du modèle GPT-2
 model_name = "gpt2-medium" 
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 model = GPT2LMHeadModel.from_pretrained(model_name)
 
+# Transformation du corpus d'entraînement
+# en input pour GPT-2
 train_path = 'test_clean.txt' 
 
 train_dataset = TextDataset(
@@ -17,6 +20,8 @@ data_collator = DataCollatorForLanguageModeling(
     tokenizer=tokenizer, mlm=False
 )
 print(len(train_dataset))
+
+# Paramétrage de l'entraînement du modèle
 training_args = TrainingArguments(
     output_dir="./model_75",
     overwrite_output_dir=True,
@@ -26,6 +31,7 @@ training_args = TrainingArguments(
     save_total_limit=2,
 )
 
+# Entraîneur du modèle
 trainer = Trainer(
     model=model,
     args=training_args,
