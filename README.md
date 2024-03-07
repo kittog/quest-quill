@@ -37,8 +37,8 @@ Pour installer Quest Quill, suivez ces étapes :
 ## Utilisation
 
 Pour utiliser Quest Quill, suivez ces étapes :
-
-1. Télécharger le modèle disponible sur wetransfer
+ 
+1. Télécharger le modèle disponible sur wetransfer : https://we.tl/t-t2L13w0v1V
 2. Accédez au dossier de l'api `cd/api`
 3. Dézipper le fichier .rar telecharger sur wetransfer dans le dossier api
 4. Exécutez l'application : ``` python -m uvicorn main:app --reload```
