@@ -4,9 +4,11 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv("perceptive_study/quest-quill_answer.tsv", sep="\t")
 
+# sélection des quêtes et des critères qui nous intéressent
 df1 = df[df["quest_id"] == 2][["coherence", "information", "has_played"]]
 df2 = df[df["quest_id"] == 4][["coherence", "information", "has_played"]]
 
+# création des histogrammes
 plt.figure()
 sns.set(color_codes=True)
 sns.set(style="white", palette="bright")
